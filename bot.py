@@ -27,11 +27,11 @@ async def on_guild_channel_create(channel):
 
 @client.command()
 async def won(ctx, arg1, arg2, arg3):
-    await ctx.channel.send("╭ <:uc_gift1:832730994406719489> <[ @{} ]> won the **{}** drop! Go ask them if we are legit!".format(arg2, arg3))
+    await ctx.channel.send("╭ <:uc_gift1:832730994406719489> [ <@{}> ] won the **{}** drop! Go ask them if we are legit!".format(arg2, arg3))
 
 @client.command()
-async def claimed(ctx, arg1, arg2):
-    channel = client.get_channel(689638287429992469)
-    await channel.send("╭ <:uc_gift1:832730994406719489> <[ @{} ]> won the **{}** drop! Go ask them if we are legit!".format(arg1, arg2))
+async def claimed(ctx, arg1, arg2, arg3):
+    channel = client.get_channel(804402670940454973)
+    await channel.send("[ <@{}> ] claimed `{}` from `{}`".format(arg1, arg2, arg3))
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
