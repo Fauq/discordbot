@@ -26,8 +26,8 @@ async def on_guild_channel_create(channel):
     return 
 
 @client.command()
-async def won(ctx, *, arg):
-    await ctx.channel.send("<@" + str(arg) + ">")
+async def won(ctx, *, arg, arg2):
+    await ctx.channel.send("╭ <:uc_gift1:832730994406719489> [ <@" + str(arg) + "> ] won the" + str(arg2) + "drop! Go ask them if we are legit!")
 
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
