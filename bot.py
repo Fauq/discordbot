@@ -4,6 +4,10 @@ import datetime
 import asyncio
 import random
 import time
+from discord.ext.commands import has_permissions, MissingPermissions
+
+
+
 client = commands.Bot(command_prefix = '*')
 
 @client.event
@@ -32,6 +36,7 @@ async def won(ctx, arg1, arg2):
     await ctx.message.delete(ctx.message)
 
 @client.command()
+@has_permissions(administrator=True)
 async def claimed(ctx, arg1, arg2, arg3):
     channel = client.get_channel(804402670940454973)
     await channel.send("[ <@{}> ] claimed `{}` from `{}`".format(arg1, arg2, arg3))
