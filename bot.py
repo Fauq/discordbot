@@ -25,5 +25,9 @@ async def on_guild_channel_create(channel):
         await channel.send(embed=embed_3)   
     return 
 
+@client.command()
+async def won(ctx, *, arg):
+    await ctx.channel.send("<@" + str(arg) + ">")
+
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
