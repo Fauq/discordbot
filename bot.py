@@ -32,6 +32,6 @@ async def won(ctx, arg1, arg2):
 @client.command(pass_context=True)
 async def claimed(ctx, arg1, arg2):
     channel = client.get_channel(689638287429992469)
-    await ctx.channel.send("╭ <:uc_gift1:832730994406719489> <@[ {} ]> won the **{}** drop! Go ask them if we are legit!".format(arg1, arg2))
+    await channel.send("╭ <:uc_gift1:832730994406719489> <@[ {} ]> won the **{}** drop! Go ask them if we are legit!".format(arg1, arg2))
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
