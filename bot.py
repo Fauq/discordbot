@@ -77,5 +77,11 @@ async def revive(ctx):
     await ctx.send("<@&789928995055468574>")
     await ctx.message.delete()
 
+@client.event
+async def on_command_error(ctx, error):
+  if isinstance(error, commands.CommandOnCooldown):
+    return await ctx.send(f"{error}")
+  raise
+
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
