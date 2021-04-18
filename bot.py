@@ -45,8 +45,37 @@ async def claimed(ctx, arg1, arg2, arg3):
 @client.command()
 @commands.has_role("Staff")
 @commands.cooldown(1, 300, commands.BucketType.guild)
-async def dropsping(ctx):
+async def drops(ctx):
     await ctx.send("<@&726842011075870754>")
     await ctx.message.delete()
+
+@client.command()
+@commands.has_role("Staff")
+@commands.cooldown(1, 300, commands.BucketType.guild)
+async def smallgiveaways(ctx):
+    await ctx.send("<@&774841087231524905>")
+    await ctx.message.delete()
+
+@client.command()
+@commands.has_role("Staff")
+@commands.cooldown(1, 300, commands.BucketType.guild)
+async def partner(ctx):
+    await ctx.send("<@&660280585843114066>")
+    await ctx.message.delete()
+
+@client.command()
+@commands.has_role("Staff")
+@commands.cooldown(1, 300, commands.BucketType.guild)
+async def gamenight(ctx):
+    await ctx.send("<@&772899769966264341>")
+    await ctx.message.delete()
+
+@client.command()
+@commands.has_role("Staff")
+@commands.cooldown(1, 1800, commands.BucketType.guild)
+async def revive(ctx):
+    await ctx.send("<@&789928995055468574>")
+    await ctx.message.delete()
+
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
