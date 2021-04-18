@@ -40,5 +40,6 @@ async def won(ctx, arg1, arg2):
 async def claimed(ctx, arg1, arg2, arg3):
     channel = client.get_channel(804402670940454973)
     await channel.send("[ <@{}> ] claimed `{}` from `{}`".format(arg1, arg2, arg3))
+    await ctx.message.delete()
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
