@@ -42,4 +42,11 @@ async def claimed(ctx, arg1, arg2, arg3):
     await channel.send("[ <@{}> ] claimed `{}` from `{}`".format(arg1, arg2, arg3))
     await ctx.message.delete()
 
+@client.command()
+@commands.has_role("Staff")
+@commands.cooldown(1, 300, commands.BucketType.guild)
+async def dropsping(ctx):
+    await ctx.send("<@&726842011075870754>")
+    await ctx.message.delete()
+
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
