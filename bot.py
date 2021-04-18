@@ -79,9 +79,11 @@ async def revive(ctx):
 
 @client.event
 async def on_command_error(ctx, error):
+  if isinstance(error, commands.CommandNotFound):
+    return
   if isinstance(error, commands.CommandOnCooldown):
     return await ctx.send(f"{error}")
-  raise error from error 
+  raise error from error
 
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
