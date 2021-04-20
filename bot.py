@@ -80,7 +80,7 @@ async def revive(ctx):
 @client.command()
 @has_permissions(administrator=True)
 async def dm(ctx, member: discord.Member, *, message):
-    DM = await member.create_dm()
+    dm = await member.create_dm()
     await dm.send(message)
 
 @client.event
