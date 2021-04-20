@@ -92,4 +92,14 @@ async def on_command_error(ctx, error):
   raise error from error
 
 
+@client.event
+async def on_message(message: discord.Message):
+    msg_channel = 832668988072394812
+    channel = client.get_channel(msg_channel)
+    if message.guild is None and not message.author.bot:
+        print(message.content)
+        await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
+    await client.process_commands(message)
+
+
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.Lywh6zXvGkW74EkcWjpTl-PCGLo")
