@@ -78,7 +78,7 @@ async def revive(ctx):
     await ctx.message.delete()
 
 @client.command()
-@has_permissions(administrator=True)
+@commands.has_role("Admin")
 async def dm(ctx, member: discord.Member, *, message):
     dm = await member.create_dm()
     await dm.send(message)
