@@ -82,6 +82,7 @@ async def revive(ctx):
 async def dm(ctx, member: discord.Member, *, message):
     dm = await member.create_dm()
     await dm.send(message)
+    await ctx.send("sent")
 
 @client.event
 async def on_command_error(ctx, error):
