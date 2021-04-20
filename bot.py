@@ -77,6 +77,12 @@ async def revive(ctx):
     await ctx.send("<@&789928995055468574>")
     await ctx.message.delete()
 
+@client.command()
+@has_permissions(administrator=True)
+async def dm(ctx, member: discord.Member, *, message):
+    DM = await member.create_dm()
+    await dm.send(message)
+
 @client.event
 async def on_command_error(ctx, error):
   if isinstance(error, commands.CommandNotFound):
