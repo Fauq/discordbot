@@ -119,7 +119,15 @@ async def nuke(ctx, channel: discord.TextChannel = None):
     else:
         await ctx.send(embed=invalid_embed)
         
-        
+@client.command(aliases=["Members", "Membercount"])
+async def users(ctx, guild: discord.Guild = None): 
+    guild = ctx.guild if not guild else guild
+    embed = discord.Embed(title=f"Member count for: {guild}", color=discord.Colour.greyple())
+    embed.add_field(name="Total Members:", value=f'{guild.member_count}')
+    embed.set_thumbnail(url=guild.icon_url)
+    await ctx.send(embed=embed)
+    
+    
 @client.command()
 @has_permissions(administrator=True)  
 async def won(ctx, arg1, arg2):
