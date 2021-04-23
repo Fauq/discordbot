@@ -54,7 +54,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
     
 
-@client.command(aliases=["rewardsblacklist", "rewards_blacklist"])
+@client.command(aliases=["rewardsblacklist", "rewards_blacklist", "blacklist"])
 @commands.has_role("Staff")
 async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"):
     if not user:
