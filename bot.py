@@ -4,11 +4,13 @@ import datetime
 import asyncio
 import random
 import time
+from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 
 
 
 client = commands.Bot(command_prefix = '*')
+client.remove_command("help")
 
 @client.event
 async def on_ready():
@@ -29,6 +31,59 @@ async def on_guild_channel_create(channel):
         await channel.send(embed=embed_3)   
     return 
 
+commands_table = [
+    {"cmd":"Won", "desc":"announce winners"},
+    {"cmd":"Claimed", "desc":"announce claimers"},
+    {"cmd":"Drops", "desc":"pings drops"},
+    {"cmd":"Smallgiveaway", "desc":"pings small giveaway"},
+    {"cmd":"Partner", "desc":"pings partner pings"},
+    {"cmd":"blacklist", "desc":"rewards blacklist user"},
+    {"cmd":"Gamenight", "desc":"pings gamenight"},
+    {"cmd":"Revive", "desc":"pings chat revive"},
+    {"cmd":"Dm", "desc":"admin + only"}
+]
+
+@client.command(aliases=["commands", "cmds"])
+async def help(ctx):
+    embed = discord.Embed(title="UC Bot all commands", color=discord.Colour.blue())
+    for fauq_sucks in commands_table:
+        name = fauq_sucks["cmd"]
+        descriptions = fauq_sucks["desc"]
+        embed.add_field(name=name, value=f"{descriptions}", inline=False)
+        embed.set_thumbnail(url=ctx.author.avatar_url)
+    await ctx.send(embed=embed)
+    
+
+@client.command(aliases=["rewardsblacklist", "rewards_blacklist", "blacklist"])
+@commands.has_role("Staff")
+async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"):
+    if not user:
+        await ctx.send("please provide a valid user")
+
+    role = get(ctx.guild.roles, name="Rewards Blacklisted")
+    channelID = 786735734626713600
+    channel = client.get_channel(channelID)
+    user_embed = discord.Embed(title="Blacklisted!", 
+                               description=f"You have been **rewards backlisted** by {ctx.author} for {reason}. If you believe this is false, go ahead and appeal.", 
+                               color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+
+    user_embed.set_footer(text="Blacklisted: ")
+
+    success_embed = discord.Embed(title="✔️ Success! ✔️", 
+                               description=f"User: {user.mention} ({user.id}) has been rewards blacklisted successfully!", 
+                               color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+    success_embed.set_footer(text="\u200b")
+    
+    log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", 
+                               description=f"User: {user.mention} ({user.id}) has been rewards blacklisted by {ctx.author.mention} ({ctx.author.id}) for {reason}.", 
+                               color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
+    log_embed.set_footer(text="\u200b")
+
+    await user.send(embed=user_embed)
+    await user.add_roles(role)
+    await ctx.send(embed=success_embed)
+    await channel.send(embed=log_embed)
+    
 @client.command()
 @has_permissions(administrator=True)  
 async def won(ctx, arg1, arg2):
@@ -75,6 +130,13 @@ async def gamenight(ctx):
 @commands.cooldown(1, 1800, commands.BucketType.guild)
 async def revive(ctx):
     await ctx.send("<@&789928995055468574>")
+    await ctx.message.delete()
+
+@client.command()
+@commands.has_role("Giveaway Manager")
+@commands.cooldown(1, 300, commands.BucketType.guild)
+async def giveaway(ctx):
+    await ctx.send("<@&655469786859438105>")
     await ctx.message.delete()
 
 @client.command()
