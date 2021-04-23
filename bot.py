@@ -64,19 +64,20 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
     channelID = 786735734626713600
     channel = client.get_channel(channelID)
     user_embed = discord.Embed(title="Blacklisted!", 
-                               description=f"You have been **rewards backlisted** by {ctx.author} for {reason}. If you believe this is false, go ahead and appeal.", 
+                               description=f"You have been **rewards backlisted** by {ctx.author} for **{reason}**. If you believe this is false, go ahead and appeal.", 
                                color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
 
-    user_embed.set_footer(text="Blacklisted: ")
+    user_embed.set_footer(text="\u200b")
 
-    success_embed = discord.Embed(title="✔️ Success! ✔️", 
+    success_embed = discord.Embed(title="✅ Success! ✅", 
                                description=f"User: {user.mention} ({user.id}) has been rewards blacklisted successfully!", 
                                color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
     success_embed.set_footer(text="\u200b")
     
-    log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", 
-                               description=f"User: {user.mention} ({user.id}) has been rewards blacklisted by {ctx.author.mention} ({ctx.author.id}) for {reason}.", 
-                               color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
+    log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
+    log_embed.add_field(name=f"User:", value=f"{user.mention}")
+    log_embed.add_field(name="Moderator:", value=f"{ctx.author.mention}")
+    log_embed.add_field(name="Reason:", value=f"{reason}")
     log_embed.set_footer(text="\u200b")
 
     await user.send(embed=user_embed)
