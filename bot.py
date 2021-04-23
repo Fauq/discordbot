@@ -85,6 +85,39 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
     await ctx.send(embed=success_embed)
     await channel.send(embed=log_embed)
     
+    
+    
+@client.command()
+@commands.has_any_role("Admin", "Head Admin", "Owner", "Community Manager", "Co Owner", "Giveaway Manager")
+async def nuke(ctx, channel: discord.TextChannel = None):
+    def confirm(messages):
+        return messages.author == ctx.author
+
+    nuke_channel = ctx.channel
+
+    confirmation_embed = discord.Embed(title="❗ Confirmation ❗", description=f"Are you sure you want to nuke this channel, {ctx.author.mention}? (y/n)", color=discord.Colour.greyple())
+    success_embed = discord.Embed(title="✅ Channel Nuked! ✅", description=f"Channel was nuked by {ctx.author.mention}", color=discord.Color.greyple())
+    cancelled_embed = discord.Embed(title="❌ Cancelled ❌", description="Nuking cancelled!", color=discord.Color.greyple())
+    invalid_embed = discord.Embed(title="❕ Invalid ❕", description="The response you entered is invalid.", color=discord.Color.greyple())
+
+    await ctx.send(embed=confirmation_embed)
+    answer = await client.wait_for('message', timeout=60, check=confirm)
+    
+    answer = answer.content
+    low = answer.lower()
+
+    if low in ('yes', 'y'):
+        answer.lower()
+        new_channel = await nuke_channel.clone(reason=f"{ctx.author} nuked the channel")
+        await nuke_channel.delete()
+        await new_channel.send(embed=success_embed)
+    elif low in ('no', 'n'):
+        answer.lower()
+        await ctx.send(embed=cancelled_embed)
+    else:
+        await ctx.send(embed=invalid_embed)
+        
+        
 @client.command()
 @has_permissions(administrator=True)  
 async def won(ctx, arg1, arg2):
