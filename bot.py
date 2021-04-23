@@ -88,7 +88,16 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
     await channel.send(embed=log_embed)
     
     
+@client.command(aliases=["makepoll", "poll"])
+@commands.has_permissions(manage_messages=True)
+async def setpoll(ctx, *, message):
+    em=discord.Embed(title="Quick Poll!", description=f"{message}", color=discord.Color.greyple())
+    msg=await ctx.channel.send(embed=em)
+    await ctx.message.delete()
+    await msg.add_reaction('👍')
+    await msg.add_reaction('👎')
     
+   
 @client.command()
 @commands.has_any_role("Admin", "Head Admin", "Owner", "Community Manager", "Co Owner", "Giveaway Manager")
 async def nuke(ctx, channel: discord.TextChannel = None):
