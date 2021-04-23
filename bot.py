@@ -37,7 +37,7 @@ commands_table = [
     {"cmd":"Drops", "desc":"pings drops"},
     {"cmd":"Smallgiveaway", "desc":"pings small giveaway"},
     {"cmd":"Partner", "desc":"pings partner pings"},
-    {"cmd":"rewardsblacklist", "desc":"rewards blacklist user"}
+    {"cmd":"rewardsblacklist", "desc":"rewards blacklist user"},
     {"cmd":"Gamenight", "desc":"pings gamenight"},
     {"cmd":"Revive", "desc":"pings chat revive"},
     {"cmd":"Dm", "desc":"admin + only"}
