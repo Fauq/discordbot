@@ -92,7 +92,7 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
 @client.command(aliases=["makepoll", "poll"])
 @commands.has_permissions(manage_messages=True)
 async def setpoll(ctx, *, message):
-    em=discord.Embed(title="Quick Poll!", description=f"{message}", color=discord.Color.greyple())
+    em=discord.Embed(title="Server Poll", description=f"{message}", color=discord.Color.greyple())
     msg=await ctx.channel.send(embed=em)
     await ctx.message.delete()
     await msg.add_reaction('👍')
