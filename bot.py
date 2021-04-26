@@ -148,7 +148,7 @@ async def won(ctx, arg1, arg2):
 @has_permissions(administrator=True)
 async def claimed(ctx, arg1, arg2, arg3):
     channel = client.get_channel(804402670940454973)
-    await channel.send("[ <@{}> ] claimed `{}` from `{}`".format(arg1, arg2, arg3))
+    await channel.send("[ <@{}> ] claimed `{}` from {}".format(arg1, arg2, arg3))
     await ctx.message.delete()
 
 @client.command()
