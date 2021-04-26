@@ -7,9 +7,9 @@ import time
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 
+intents=discord.Intents.all()
 
-
-client = commands.Bot(command_prefix = '*')
+client = commands.Bot(command_prefix = '*', intents =intents)
 client.remove_command("help")
 
 @client.event
