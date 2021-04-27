@@ -166,7 +166,7 @@ async def claimed(ctx, arg1, arg2, *, arg3):
 
 @client.command()
 @commands.has_role("Staff")
-@commands.cooldown(1, 300, commands.BucketType.guild)
+@commands.cooldown(1, 1500, commands.BucketType.guild)
 async def drops(ctx):
     await ctx.send("<@&726842011075870754>")
     await ctx.message.delete()
@@ -201,7 +201,7 @@ async def revive(ctx):
 
 @client.command()
 @commands.has_role("Giveaway Manager")
-@commands.cooldown(1, 300, commands.BucketType.guild)
+@commands.cooldown(1, 3600, commands.BucketType.guild)
 async def giveaway(ctx):
     await ctx.send("<@&655469786859438105>")
     await ctx.message.delete()
