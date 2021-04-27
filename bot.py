@@ -134,7 +134,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         answer.lower()
         new_channel = await nuke_channel.clone(reason=f"{ctx.author} nuked the channel")
         await nuke_channel.delete()
-        await new_channel.edit(position=0)
+        await new_channel.edit(position=nuke_channel.position)
         await new_channel.send(embed=success_embed)
     elif low in ('no', 'n'):
         answer.lower()
