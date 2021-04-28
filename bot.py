@@ -44,6 +44,7 @@ commands_table = [
     {"cmd":"blacklist", "desc":"rewards blacklist user"},
     {"cmd":"nuke", "desc":"nukes a channel"},
     {"cmd":"Gamenight", "desc":"pings gamenight"},
+    {"cmd":"lvlrole", "desc":"gives you a lvl role based off your mee6 lvl"},
     {"cmd":"Revive", "desc":"pings chat revive"},
     {"cmd":"Dm", "desc":"admin + only"}
 ]
