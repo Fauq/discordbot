@@ -4,6 +4,8 @@ import datetime
 import asyncio
 import random
 import time
+import mee6_py_api
+from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 
@@ -11,6 +13,7 @@ intents=discord.Intents.all()
 
 client = commands.Bot(command_prefix = '*', intents =intents)
 client.remove_command("help")
+mee6API = API(650354577828216853)
 
 @client.event
 async def on_ready():
@@ -89,6 +92,69 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
     await channel.send(embed=log_embed)
     
     
+    
+    
+@client.command()
+async def lvlrole(ctx):
+    check_level = await mee6API.levels.get_user_level(ctx.message.author.id)
+
+    embed = discord.Embed(title="✅ Success! ✅", color=discord.Color.blurple())
+
+    embed_error = discord.Embed(title="❌ Error! ❌", color=discord.Color.blurple())
+
+    if check_level >= 10 and check_level < 20:
+        role = get(ctx.guild.roles, name="Active | Lvl 10+")
+        if get(ctx.author.roles, name="Active | Lvl 10+"):
+            embed_error.description=f"You already have the role {role.mention}"
+            await ctx.send(embed=embed_error)
+        else:
+            embed.description=f"I have given you the {role.mention} role!"
+            await ctx.author.add_roles(role)
+            await ctx.send(embed=embed)
+
+    elif check_level >= 20 and check_level < 30:
+        role2 = get(ctx.guild.roles, name="Dedicated | Lvl 20+")
+        if get(ctx.author.roles, name="Dedicated | Lvl 20+"):
+            embed_error.description=f"You already have the role {role2.mention}"
+            await ctx.send(embed=embed_error)      
+        else:
+            embed.description=f"I have given you the {role2.mention} role!"
+            await ctx.author.add_roles(role2)
+            await ctx.send(embed=embed)
+
+    elif check_level >= 30 and check_level < 40:
+        role3 = get(ctx.guild.roles, name="Godly | Lvl 30+")
+        if get(ctx.author.roles, name="Godly | Lvl 30+"):
+            embed_error.description=f"You already have the role {role3.mention}"
+            await ctx.send(embed=embed_error)
+        else:
+            embed.description=f"I have given you the {role3.mention} role!"
+            await ctx.author.add_roles(role3)
+            await ctx.send(embed=embed) 
+
+    elif check_level >= 40 and check_level < 50:
+        role4 = get(ctx.guild.roles, name="Insane | Lvl 40+")
+        if get(ctx.author.roles, name="Insane | Lvl 40+"):
+            embed_error.description=f"You already have the role {role4.mention}"
+            await ctx.send(embed=embed_error)
+        else:
+            embed.description=f"I have given you the {role4.mention} role!"
+            await ctx.author.add_roles(role4)
+            await ctx.send(embed=embed)
+    elif check_level >= 50:
+        role5 = get(ctx.guild.roles, name="No Life | Lvl 50+")
+        if get(ctx.author.roles, name="No Life | Lvl 50+"):
+            embed_error.description=f"You already have the role {role5.mention}"
+            await ctx.send(embed=embed_error)
+        else:
+            embed.description=f"I have given you the {role5.mention} role!"
+            await ctx.author.add_roles(role5)
+            await ctx.send(embed=embed)
+    else:
+        await ctx.send("An Error has Occured!")
+        return
+    
+
 @client.command(aliases=["makepoll", "poll"])
 @commands.has_permissions(manage_messages=True)
 async def setpoll(ctx, *, message):
