@@ -4,8 +4,10 @@ import datetime
 import asyncio
 import random
 import time
+import os
 import mee6_py_api
 from mee6_py_api import API
+from server import keep_alive
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 
@@ -13,6 +15,7 @@ intents=discord.Intents.all()
 
 client = commands.Bot(command_prefix = '*', intents =intents)
 client.remove_command("help")
+
 mee6API = API(650354577828216853)
 
 @client.event
@@ -44,8 +47,8 @@ commands_table = [
     {"cmd":"blacklist", "desc":"rewards blacklist user"},
     {"cmd":"nuke", "desc":"nukes a channel"},
     {"cmd":"Gamenight", "desc":"pings gamenight"},
-    {"cmd":"lvlrole", "desc":"gives you a lvl role based off your mee6 lvl"},
     {"cmd":"Revive", "desc":"pings chat revive"},
+    {"cmd":"lvlrole", "desc":"gives you a lvl role based off your mee6 lvl"},
     {"cmd":"Dm", "desc":"admin + only"}
 ]
 
@@ -91,10 +94,8 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
     await user.add_roles(role)
     await ctx.send(embed=success_embed)
     await channel.send(embed=log_embed)
-    
-    
-    
-    
+
+
 @client.command()
 async def lvlrole(ctx):
     check_level = await mee6API.levels.get_user_level(ctx.message.author.id)
@@ -103,7 +104,7 @@ async def lvlrole(ctx):
 
     embed_error = discord.Embed(title="❌ Error! ❌", color=discord.Color.blurple())
 
-    if check_level >= 10 and check_level < 20:
+    if check_level > 9 and check_level < 20:
         role = get(ctx.guild.roles, name="Active | Lvl 10+")
         if get(ctx.author.roles, name="Active | Lvl 10+"):
             embed_error.description=f"You already have the role {role.mention}"
@@ -152,10 +153,12 @@ async def lvlrole(ctx):
             await ctx.author.add_roles(role5)
             await ctx.send(embed=embed)
     else:
-        await ctx.send("An Error has Occured!")
+        await ctx.send("You need to be 10+ to use this command.")
         return
     
 
+
+    
 @client.command(aliases=["makepoll", "poll"])
 @commands.has_permissions(manage_messages=True)
 async def setpoll(ctx, *, message):
@@ -299,5 +302,7 @@ async def on_message(message: discord.Message):
         await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
     await client.process_commands(message)
 
+
+keep_alive()
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.LOvyiP6juG5Qb3Pnun_f-R-mwlk")
