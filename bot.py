@@ -7,7 +7,6 @@ import time
 import os
 import mee6_py_api
 from mee6_py_api import API
-from server import keep_alive
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 
@@ -70,7 +69,7 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
         await ctx.send("please provide a valid user")
 
     role = get(ctx.guild.roles, name="Rewards Blacklisted")
-    channelID = 786735734626713600
+    channelID = 837356438544187402
     channel = client.get_channel(channelID)
     user_embed = discord.Embed(title="Blacklisted!", 
                                description=f"You have been **rewards backlisted** by {ctx.author} for **{reason}**. If you believe this is false, go ahead and appeal.", 
@@ -295,14 +294,11 @@ async def on_command_error(ctx, error):
 
 @client.event
 async def on_message(message: discord.Message):
-    msg_channel = 832668988072394812
+    msg_channel = 689638287429992469
     channel = client.get_channel(msg_channel)
     if message.guild is None and not message.author.bot:
         print(message.content)
         await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
     await client.process_commands(message)
-
-
-keep_alive()
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.LOvyiP6juG5Qb3Pnun_f-R-mwlk")
