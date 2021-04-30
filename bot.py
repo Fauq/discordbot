@@ -102,54 +102,71 @@ async def lvlrole(ctx):
     embed = discord.Embed(title="✅ Success! ✅", color=discord.Color.blurple())
 
     embed_error = discord.Embed(title="❌ Error! ❌", color=discord.Color.blurple())
+    
+    role = get(ctx.guild.roles, name="Active | Lvl 10+")
 
-    if check_level > 9 and check_level < 20:
-        role = get(ctx.guild.roles, name="Active | Lvl 10+")
-        if get(ctx.author.roles, name="Active | Lvl 10+"):
-            embed_error.description=f"You already have the role {role.mention}"
-            await ctx.send(embed=embed_error)
+    role2 = get(ctx.guild.roles, name="Dedicated | Lvl 20+") 
+    
+    role3 = get(ctx.guild.roles, name="Godly | Lvl 30+") 
+    
+    role4 = get(ctx.guild.roles, name="Insane | Lvl 40+")
+
+    role5 = get(ctx.guild.roles, name="No Life | Lvl 50+") 
+    
+    role6 = get(ctx.author.roles, name="Active | Lvl 10+")
+
+    role7 = get(ctx.author.roles, name="Dedicated | Lvl 20+") 
+    
+    role8 = get(ctx.author.roles, name="Godly | Lvl 30+") 
+    
+    role9 = get(ctx.author.roles, name="Insane | Lvl 40+")
+
+    role10 = get(ctx.author.roles, name="No Life | Lvl 50+") 
+    
+
+    
+    if check_level >= 9 and check_level < 20:
+        if role6:
+            embed_error.description=f"You already have the role"
+            await ctx.send(embed=embed_error) 
         else:
-            embed.description=f"I have given you the {role.mention} role!"
+            embed.description=f"I have given you the role!"
             await ctx.author.add_roles(role)
             await ctx.send(embed=embed)
 
     elif check_level >= 20 and check_level < 30:
-        role2 = get(ctx.guild.roles, name="Dedicated | Lvl 20+")
-        if get(ctx.author.roles, name="Dedicated | Lvl 20+"):
-            embed_error.description=f"You already have the role {role2.mention}"
-            await ctx.send(embed=embed_error)      
+        if role6 and role7:
+            embed_error.description=f"You already have the role"
+            await ctx.send(embed=embed_error) 
         else:
-            embed.description=f"I have given you the {role2.mention} role!"
-            await ctx.author.add_roles(role2)
+            embed.description=f"I have given you the role(s)!"
+            await ctx.author.add_roles(role2, role)
             await ctx.send(embed=embed)
 
     elif check_level >= 30 and check_level < 40:
-        role3 = get(ctx.guild.roles, name="Godly | Lvl 30+")
-        if get(ctx.author.roles, name="Godly | Lvl 30+"):
-            embed_error.description=f"You already have the role {role3.mention}"
-            await ctx.send(embed=embed_error)
+        if role6 and role7 and role8:
+            embed_error.description=f"You already have the role"
+            await ctx.send(embed=embed_error) 
         else:
-            embed.description=f"I have given you the {role3.mention} role!"
-            await ctx.author.add_roles(role3)
-            await ctx.send(embed=embed) 
+            embed.description=f"I have given you the role(s)!"
+            await ctx.author.add_roles(role3, role2, role)
+            await ctx.send(embed=embed)
 
     elif check_level >= 40 and check_level < 50:
-        role4 = get(ctx.guild.roles, name="Insane | Lvl 40+")
-        if get(ctx.author.roles, name="Insane | Lvl 40+"):
-            embed_error.description=f"You already have the role {role4.mention}"
-            await ctx.send(embed=embed_error)
+        if role6 and role7 and role8 and role9:
+            embed_error.description=f"You already have the role"
+            await ctx.send(embed=embed_error) 
         else:
-            embed.description=f"I have given you the {role4.mention} role!"
-            await ctx.author.add_roles(role4)
+            embed.description=f"I have given you the role(s)!"
+            await ctx.author.add_roles(role4, role3, role2, role)
             await ctx.send(embed=embed)
     elif check_level >= 50:
-        role5 = get(ctx.guild.roles, name="No Life | Lvl 50+")
-        if get(ctx.author.roles, name="No Life | Lvl 50+"):
-            embed_error.description=f"You already have the role {role5.mention}"
-            await ctx.send(embed=embed_error)
+        if role6 and role7 and role8 and role9 and role10:
+            embed_error.description=f"You already have the role"
+            await ctx.send(embed=embed_error) 
         else:
-            embed.description=f"I have given you the {role5.mention} role!"
-            await ctx.author.add_roles(role5)
+            embed.description=f"I have given you the role(s)!"
+            await ctx.author.add_roles(role5, role4, role3, role2, role)
             await ctx.send(embed=embed)
     else:
         await ctx.send("You need to be 10+ to use this command.")
