@@ -202,6 +202,7 @@ async def ban(ctx, user: discord.Member, *, reason="No Reason Provided."):
             await channel.send(embed=log_embed)
             await webhook.send(embed=log_embed)
             await user.ban(reason=reason)
+
         
     
 @client.command(aliases=["makepoll", "poll"])
