@@ -12,7 +12,7 @@ from discord.ext.commands import has_permissions, MissingPermissions
 
 intents=discord.Intents.all()
 
-client = commands.Bot(command_prefix = '*', intents =intents)
+client = commands.Bot(command_prefix = ['*', "succyfauqy"], intents=discord.Intents.all())
 client.remove_command("help")
 
 mee6API = API(650354577828216853)
