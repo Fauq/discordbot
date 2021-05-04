@@ -7,6 +7,7 @@ import time
 import os
 import mee6_py_api
 import aiohttp
+import jishaku
 from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
@@ -16,6 +17,7 @@ client = commands.Bot(command_prefix = ['*', "succyfauqy "], intents=discord.Int
 client.remove_command("help")
 
 mee6API = API(650354577828216853)
+client.load_extension("jishaku")
 
 @client.event
 async def on_ready():
