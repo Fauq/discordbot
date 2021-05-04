@@ -6,9 +6,11 @@ import random
 import time
 import os
 import mee6_py_api
+import aiohttp
 from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
+from discord import Webhook, AsyncWebhookAdapter
 
 client = commands.Bot(command_prefix = '*', intents=discord.Intents.all())
 client.remove_command("help")
