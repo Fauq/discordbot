@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands 
-import datetime
+from datetime import datetime
 import asyncio
 import random
 import time
@@ -62,6 +62,21 @@ async def help(ctx):
         embed.add_field(name=name, value=f"{descriptions}", inline=False)
         embed.set_thumbnail(url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
+
+@client.command()
+async def banalt(ctx):
+    res = []
+    time = datetime.now()
+    while(true):
+        for member in ctx.guild.members:
+            if (time - mem.created_at).total_seconds() < 604800:
+                res.append(mem.id)
+                                    # await mem.ban(reason='alt') # I DONT DO THIS YET JUST TO MAKE SURE ALL ARE ALT BEFORE U RUN
+                await ctx.send(res)
+        
+           
+
+
     
 
 @client.command(aliases=["rewardsblacklist", "rewards_blacklist", "blacklist"])
