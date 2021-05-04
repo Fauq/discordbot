@@ -46,7 +46,7 @@ commands_table = [
     {"cmd":"Gamenight", "desc":"pings gamenight"},
     {"cmd":"Revive", "desc":"pings chat revive"},
     {"cmd":"lvlrole", "desc":"gives you a lvl role based off your mee6 lvl"},
-    "cmd":"setpoll", "desc":"makes a poll"},
+    {"cmd":"setpoll", "desc":"makes a poll"},
     {"cmd":"ban", "desc":"bans user"},
     {"cmd":"Dm", "desc":"admin + only"}
 ]
