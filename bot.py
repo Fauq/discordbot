@@ -10,9 +10,7 @@ from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 
-intents=discord.Intents.all()
-
-client = commands.Bot(command_prefix = ['*', "succyfauqy"], intents=discord.Intents.all())
+client = commands.Bot(command_prefix = ['*', "succyfauqy "], intents=discord.Intents.all())
 client.remove_command("help")
 
 mee6API = API(650354577828216853)
@@ -48,6 +46,8 @@ commands_table = [
     {"cmd":"Gamenight", "desc":"pings gamenight"},
     {"cmd":"Revive", "desc":"pings chat revive"},
     {"cmd":"lvlrole", "desc":"gives you a lvl role based off your mee6 lvl"},
+    "cmd":"setpoll", "desc":"makes a poll"},
+    {"cmd":"ban", "desc":"bans user"},
     {"cmd":"Dm", "desc":"admin + only"}
 ]
 
