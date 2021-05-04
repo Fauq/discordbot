@@ -125,7 +125,7 @@ async def lvlrole(ctx):
     
 
     
-    if check_level >= 9 and check_level < 20:
+    if check_level >= 9 and check_level < 19:
         if role6:
             embed_error.description=f"You already have the role"
             await ctx.send(embed=embed_error) 
@@ -134,7 +134,7 @@ async def lvlrole(ctx):
             await ctx.author.add_roles(role)
             await ctx.send(embed=embed)
 
-    elif check_level >= 20 and check_level < 30:
+    elif check_level >= 19 and check_level < 29:
         if role6 and role7:
             embed_error.description=f"You already have the role"
             await ctx.send(embed=embed_error) 
@@ -143,7 +143,7 @@ async def lvlrole(ctx):
             await ctx.author.add_roles(role2, role)
             await ctx.send(embed=embed)
 
-    elif check_level >= 30 and check_level < 40:
+    elif check_level >= 29 and check_level < 39:
         if role6 and role7 and role8:
             embed_error.description=f"You already have the role"
             await ctx.send(embed=embed_error) 
@@ -152,7 +152,7 @@ async def lvlrole(ctx):
             await ctx.author.add_roles(role3, role2, role)
             await ctx.send(embed=embed)
 
-    elif check_level >= 40 and check_level < 50:
+    elif check_level >= 39 and check_level < 49:
         if role6 and role7 and role8 and role9:
             embed_error.description=f"You already have the role"
             await ctx.send(embed=embed_error) 
@@ -160,7 +160,7 @@ async def lvlrole(ctx):
             embed.description=f"I have given you the role(s)!"
             await ctx.author.add_roles(role4, role3, role2, role)
             await ctx.send(embed=embed)
-    elif check_level >= 50:
+    elif check_level >= 49:
         if role6 and role7 and role8 and role9 and role10:
             embed_error.description=f"You already have the role"
             await ctx.send(embed=embed_error) 
