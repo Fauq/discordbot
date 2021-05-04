@@ -176,30 +176,32 @@ async def lvlrole(ctx):
 @client.command()
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, user: discord.Member, *, reason="No Reason Provided."):
-    channelID = 786735734626713600
-    channel = client.get_channel(channelID)
+    async with aiohttp.ClientSession() as session:
+        channelID = 786735734626713600
+        channel = client.get_channel(channelID)
+        webhook = Webhook.from_url('https://discord.com/api/webhooks/839170018142847008/h2bdEgBozIheGZehzYBlMb_tMwHWg3dbI-bT7cnC441XO8iUDNhKNFaHLMDGywAd3PvF', adapter=AsyncWebhookAdapter(session))
+        embed = discord.Embed(description=f"***{user} was banned*** | {reason}", color=discord.Color.blue())
+        user_embed = discord.Embed(title="Banned!", description=f"You were banned in **{user.guild}** for **{reason}**.", color=discord.Color.blue())
+        user_embed.add_field(name="Appeal Server: ", value="https://discord.gg/dkaBMKsWEy")
 
-    embed = discord.Embed(description=f"***{user} was banned*** | {reason}", color=discord.Color.blue())
-    user_embed = discord.Embed(title="Banned!", description=f"You were banned in **{user.guild}** for **{reason}**.", color=discord.Color.blue())
-    user_embed.add_field(name="Appeal Server: ", value="https://discord.gg/dkaBMKsWEy")
+            
+        log_embed = discord.Embed(color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
+        log_embed.add_field(name=f"User:", value=f"{user.mention}")
+        log_embed.add_field(name="Moderator:", value=f"{ctx.author.mention}")
+        log_embed.add_field(name="Reason:", value=f"{reason}")
+        log_embed.set_author(name=f"Ban | {user}", icon_url=user.avatar_url)
+        log_embed.set_footer(text=f"ID: {user.id}")
 
-        
-    log_embed = discord.Embed(color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
-    log_embed.add_field(name=f"User:", value=f"{user.mention}")
-    log_embed.add_field(name="Moderator:", value=f"{ctx.author.mention}")
-    log_embed.add_field(name="Reason:", value=f"{reason}")
-    log_embed.set_author(name=f"Ban | {user}", icon_url=user.avatar_url)
-    log_embed.set_footer(text=f"ID: {user.id}")
-
-    if user == client.user:
-        await ctx.send("You motherfucker, don't even try")
-    elif user.guild_permissions.ban_members:
-        await ctx.send(f"Bro, {user} has ban perms, you are sped")
-    else:
-        await user.send(embed=user_embed)
-        await ctx.send(embed=embed)
-        await channel.send(embed=log_embed)
-        await user.ban(reason=reason)
+        if user == client.user:
+            await ctx.send("You motherfucker, don't even try")
+        elif user.guild_permissions.ban_members:
+            await ctx.send(f"Bro, {user} has ban perms, you are sped")
+        else:
+            await user.send(embed=user_embed)
+            await ctx.send(embed=embed)
+            await channel.send(embed=log_embed)
+            await webhook.send(embed=log_embed)
+            await user.ban(reason=reason)
         
     
 @client.command(aliases=["makepoll", "poll"])
