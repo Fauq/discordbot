@@ -67,11 +67,11 @@ async def help(ctx):
 async def banalt(ctx):
     res = []
     time = datetime.now()
-    while(true):
-        for member in ctx.guild.members:
+    while():
+        for mem in ctx.guild.members:
             if (time - mem.created_at).total_seconds() < 604800:
                 res.append(mem.id)
-                                    # await mem.ban(reason='alt') # I DONT DO THIS YET JUST TO MAKE SURE ALL ARE ALT BEFORE U RUN
+                # await mem.ban(reason='alt') # I DONT DO THIS YET JUST TO MAKE SURE ALL ARE ALT BEFORE U RUN
                 await ctx.send(res)
         
            
