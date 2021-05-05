@@ -154,7 +154,7 @@ class Moderation(commands.Cog, name="Mod"):
                                 color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
         success_embed.set_footer(text="\u200b")
         
-        log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
+        log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", color=discord.Color.greyple(), timestamp=datetime.now())
         log_embed.add_field(name=f"User:", value=f"{user.mention}")
         log_embed.add_field(name="Moderator:", value=f"{ctx.author.mention}")
         log_embed.add_field(name="Reason:", value=f"{reason}")
