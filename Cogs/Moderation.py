@@ -144,14 +144,14 @@ class Moderation(commands.Cog, name="Mod"):
         channel = ctx.guild.get_channel(channelID)
         user_embed = discord.Embed(title="Blacklisted!", 
                                 description=f"You have been **rewards backlisted** by {ctx.author} for **{reason}**. If you believe this is false, go ahead and appeal.", 
-                                color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+                                color=discord.Color.red(), timestamp=datetime.now())
         user_embed.add_field(name="Appeal Server:", value="https://discord.gg/dkaBMKsWEy", inline=False)
 
         user_embed.set_footer(text="\u200b")
 
         success_embed = discord.Embed(title="✅ Success! ✅", 
                                 description=f"User: {user.mention} ({user.id}) has been rewards blacklisted successfully!", 
-                                color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+                                color=discord.Color.blue(), timestamp=datetime.now())
         success_embed.set_footer(text="\u200b")
         
         log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", color=discord.Color.greyple(), timestamp=datetime.now())
