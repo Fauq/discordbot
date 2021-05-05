@@ -59,6 +59,11 @@ commands_table = [
     {"cmd":"Dm", "desc":"admin + only"}
 ]
 
+
+OWNERID = 306206611054133249
+OWNER2 = 262077793528053761
+
+
 @client.command(aliases=["commands", "cmds"])
 async def help(ctx):
     embed = discord.Embed(title="UC Bot all commands", color=discord.Colour.blue())
