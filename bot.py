@@ -96,7 +96,7 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
     channel = client.get_channel(channelID)
     user_embed = discord.Embed(title="Blacklisted!", 
                                description=f"You have been **rewards backlisted** by {ctx.author} for **{reason}**. If you believe this is false, go ahead and appeal.", 
-                               color=discord.Color.red(), timestamp=datetime.datetime.utcnow())
+                               color=discord.Color.red(), timestamp=datetime.now())
     user_embed.add_field(name="Appeal Server:", value="https://discord.gg/dkaBMKsWEy", inline=False)
 
     user_embed.set_footer(text="\u200b")
