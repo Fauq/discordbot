@@ -1,4 +1,4 @@
-import discord
+'''import discord
 from discord.ext import commands 
 import asyncio
 import random
@@ -371,4 +371,4 @@ async def on_message(message: discord.Message):
         await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
     await client.process_commands(message)
 
-client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.LOvyiP6juG5Qb3Pnun_f-R-mwlk")
+client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.LOvyiP6juG5Qb3Pnun_f-R-mwlk")'''
