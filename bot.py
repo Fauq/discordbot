@@ -208,7 +208,7 @@ async def ban(ctx, user: discord.Member, *, reason="No Reason Provided."):
         user_embed.add_field(name="Appeal Server: ", value="https://discord.gg/dkaBMKsWEy")
 
             
-        log_embed = discord.Embed(color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
+        log_embed = discord.Embed(color=discord.Color.greyple(), timestamp=datetime.now())
         log_embed.add_field(name=f"User:", value=f"{user.mention}")
         log_embed.add_field(name="Moderator:", value=f"{ctx.author.mention}")
         log_embed.add_field(name="Reason:", value=f"{reason}")
