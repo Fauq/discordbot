@@ -72,6 +72,7 @@ async def banalt(ctx):
     for mem in ctx.guild.members:
         if (time - mem.created_at).total_seconds() <= 604800:
             res.append(mem.id)
+            await mem.kick(reason='alt')
              # I DONT DO THIS YET JUST TO MAKE SURE ALL ARE ALT BEFORE U RUN
 
 
