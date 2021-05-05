@@ -69,7 +69,14 @@ async def help(ctx):
         embed.set_thumbnail(url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-
+@client.command(name = "reload", aliases=['refresh'], description="Reloads a cog (Bot owner only)")
+async def reload_(ctx, extension):
+    embed = discord.Embed(title="Success!", description=f"I have successfully reloaded the Cog `{extension}`", color=discord.Color.blue())
+    if ctx.author.id == OWNERID or ctx.author.id == OWNER2:
+        client.reload_extension(f'Cogs.{extension}')
+        await ctx.send(embed=embed) 
+    else:
+        await ctx.send(f"Only the bot owner can use this command")
     
 @client.event
 async def on_command_error(ctx, error):
