@@ -103,7 +103,7 @@ async def rblacklist(ctx, user: discord.Member, *, reason = "No reason provided"
 
     success_embed = discord.Embed(title="✅ Success! ✅", 
                                description=f"User: {user.mention} ({user.id}) has been rewards blacklisted successfully!", 
-                               color=discord.Color.blue(), timestamp=datetime.datetime.utcnow())
+                               color=discord.Color.blue(), timestamp=datetime.now())
     success_embed.set_footer(text="\u200b")
     
     log_embed = discord.Embed(title="❌ Rewards Blacklist ❌", color=discord.Color.greyple(), timestamp=datetime.datetime.utcnow())
