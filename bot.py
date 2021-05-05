@@ -66,6 +66,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.has_permissions(administrator=True)
 async def banalt(ctx):
     res = []
     time = datetime.now()
