@@ -13,8 +13,6 @@ from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Webhook, AsyncWebhookAdapter
 
-client.add_extension('jishaku')
-
 client = commands.Bot(command_prefix = ['*', "succyfauqy "], intents=discord.Intents.all())
 client.remove_command("help")
 
