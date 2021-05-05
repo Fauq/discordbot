@@ -28,4 +28,4 @@ typing-extensions==3.7.4.3
 urllib3==1.26.4
 wrapt==1.12.1
 yarl==1.6.3
-jishaku==1.2.0
+jishaku==1.20.0.220
