@@ -101,6 +101,35 @@ class Moderation(commands.Cog, name="Mod"):
         await ctx.send(embed=embed)
         await channel.send(embed=log_embed)
 
+        
+        
+
+    @commands.command(description="Kicks Specified member.")
+    @commands.has_any_role('Moderator', 'Head Moderator', "Admin")
+    @commands.has_permissions(kick_members=True)
+    async def kick(self, ctx, member : discord.Member, *, reason="No reason provided"):  
+
+        channelID = 786735734626713600
+        channel = ctx.guild.get_channel(channelID)
+
+        embed=discord.Embed(title="Kicked", description=f"{member} was kicked | {reason}", color=discord.Color.red())
+        user_embed = discord.Embed(title="Kicked!", description=f"You were kick from **{member.guild}** for **{reason}**.", color=discord.Color.blue())
+    
+        log_embed = discord.Embed(color=discord.Color.purple(), timestamp=datetime.now())
+        log_embed.add_field(name=f"User:", value=f"{member.mention}")
+        log_embed.add_field(name="Moderator:", value=f"{ctx.author.mention}")
+        log_embed.add_field(name="Reason:", value=f"{reason}")
+        log_embed.set_author(name=f"Kicked | {member}", icon_url=member.avatar_url)
+        log_embed.set_footer(text=f"ID: {member.id}")
+
+        if member.guild_permissions.kick_members:
+            await ctx.send("That user is a Mod or higher bruh")
+        else:
+            await member.send(embed=user_embed)
+            await member.kick(reason=reason)
+            await ctx.send(embed=embed)
+            await channel.send(embed=log_embed)
+     
     @commands.command(description="Nukes the channel this command is ran in")
     @commands.has_any_role("Admin", "Head Admin", "Owner", "Community Manager", "Co Owner", "Giveaway Manager")
     async def nuke(self, ctx, channel: discord.TextChannel = None):
