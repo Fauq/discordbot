@@ -57,6 +57,7 @@ commands_table = [
     {"cmd":"setpoll", "desc":"makes a poll"},
     {"cmd":"ban", "desc":"bans user"},
     {"cmd":"unban", "desc":"unbans user"},
+    {"cmd":"kick", "desc":"kicks user"},
     {"cmd":"Dm", "desc":"admin + only"}
 ]
 
