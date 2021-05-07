@@ -30,7 +30,8 @@ initial_extensions = [
 'Cogs.Events',
 'Cogs.Moderation',
 'Cogs.Pings',
-'Cogs.PublicCMDS'
+'Cogs.PublicCMDS',
+'Cogs.Errors'
 ]
                     
 if __name__ == '__main__':
