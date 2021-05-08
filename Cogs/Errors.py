@@ -12,7 +12,11 @@ class Errors(commands.Cog, name="Error"):
 
         embed=discord.Embed(title="Error with executed command: ", description=f"`{error}`")
 
-        await ctx.send(embed=embed)
+        if isinstance(error, commands.CommandNotFound):
+            pass
+        else:
+            await ctx.send(embed=embed)
+            
 
 
 def setup(bot):
