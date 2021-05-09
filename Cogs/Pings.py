@@ -39,7 +39,7 @@ class Pings(commands.Cog, name="Pings"):
     async def end(ctx):
         embed = discord.Embed(title = "<:uc_info:832732093238607939> **Event Ended!**" , description = "\n<:uc_dot:832731636063535124> Thank you to all the participants, we will be paying those who opened a ticket on time.\n<:uc_dot:832731636063535124> Proof will be posted and logged in <#804402670940454973>\nIf you didn't get a ticket, you can always claim <#816809670848282624>" , color = 0xf6beb7)
         embed.set_image(url = "https://media.discordapp.net/attachments/832668988072394812/833858193888641135/invite-event.png?width=960&height=257")
-        await ctx.channel.send(embed = embed)
+        await ctx.send(embed = embed)
         await ctx.message.delete()
 
     @commands.command()
