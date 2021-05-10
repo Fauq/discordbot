@@ -26,7 +26,14 @@ class Pings(commands.Cog, name="Pings"):
     async def won(self, ctx, user: discord.Member):
         embed = discord.Embed(description = "<:uc_info:832732093238607939>** ➤ FOLLOW THE TIPS:**\n<:uc_dots:832735257152192522> Put our server on top of all servers\n<:uc_dots:832735257152192522> Go to the channel and react fast when we ping\n<:uc_dots:832735257152192522> Be sure to participate every time to get free Robux/Nitro!\n\n<:uc_info:832732093238607939>** ➤ EXTRA CLAIM TIMES AND LUCK:**\n<:uc_dots:832735257152192522> <#804401736194326618>" , color = 0xa222f2)
         embed.set_image(url = "https://media.discordapp.net/attachments/689638287429992469/841349132601917450/kek.png")
-        await ctx.send(f"{user.mention} won the giveaway! Ask them if we are legit!")
+        await ctx.send(f"{user.mention} won the giveaway! Ask them if we are legit!", embed = embed)
+        await ctx.message.delete()
+
+    @commands.command()
+    @commands.has_role("Owner") 
+    async def closed(self, ctx):
+        embed = discord.Embed(description = "<:uc_info:832732093238607939> **TICKETS ARE CURRENTLY CLOSED**\n\n<:uc_dots:832735257152192522> **Why?** \n Over 100 tickets have been made for the event, meaning I can not allow more users to claim.\n\n<:uc_dots:832735257152192522> **What if I didn't get a ticket?** \n You can always claim our permanent rewards in <#816809670848282624>\n\n<:uc_dots:832735257152192522> When will tickets reopen for normal rewards?\nWhen I finish paying out the current invite event." , color = 0xa222f2)
+        embed.set_image(url = "https://media.discordapp.net/attachments/689638287429992469/841349132601917450/kek.png")
         await ctx.send(embed = embed)
         await ctx.message.delete()
 
