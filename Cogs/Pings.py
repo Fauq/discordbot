@@ -21,8 +21,8 @@ class Pings(commands.Cog, name="Pings"):
         self.bot = bot
 
     @commands.command()
-    @commands.has_role("Giveaway Manager") 
-    @commands.cooldown(1, 300, commands.BucketType.guild)
+    @commands.has_role("Staff") 
+    @commands.cooldown(1, 60, commands.BucketType.guild)
     async def won(self, ctx, user: discord.Member):
         embed = discord.Embed(description = "<:uc_info:832732093238607939>** ➤ FOLLOW THE TIPS:**\n<:uc_dots:832735257152192522> Put our server on top of all servers\n<:uc_dots:832735257152192522> Go to the channel and react fast when we ping\n<:uc_dots:832735257152192522> Be sure to participate every time to get free Robux/Nitro!\n\n<:uc_info:832732093238607939>** ➤ EXTRA CLAIM TIMES AND LUCK:**\n<:uc_dots:832735257152192522> <#804401736194326618>" , color = 0xa222f2)
         embed.set_image(url = "https://media.discordapp.net/attachments/689638287429992469/841349132601917450/kek.png")
