@@ -32,7 +32,7 @@ class Pings(commands.Cog, name="Pings"):
     @commands.command()
     @commands.has_role("Owner") 
     async def closed(self, ctx):
-        embed = discord.Embed(description = "<:uc_info:832732093238607939> **TICKETS ARE CURRENTLY CLOSED**\n\n<:uc_dots:832735257152192522> **Why?** \n Over 100 tickets have been made for the event, meaning I can not allow more users to claim.\n\n<:uc_dots:832735257152192522> **What if I didn't get a ticket?** \n You can always claim our permanent rewards in <#816809670848282624>\n\n<:uc_dots:832735257152192522> When will tickets reopen for normal rewards?\nWhen I finish paying out the current invite event." , color = 0xa222f2)
+        embed = discord.Embed(description = "<:uc_info:832732093238607939> **TICKETS ARE CURRENTLY CLOSED**\n\n<:uc_dots:832735257152192522> **Why?** \n Over 100 tickets have been made for the event, meaning I can not allow more users to claim.\n\n<:uc_dots:832735257152192522> **What if I didn't get a ticket?** \n You can always claim our permanent rewards in \n<#816809670848282624>\n\n<:uc_dots:832735257152192522> **When will tickets reopen for normal rewards?**\nWhen I finish paying out the current invite event." , color = 0xa222f2)
         embed.set_image(url = "https://media.discordapp.net/attachments/689638287429992469/841349132601917450/kek.png")
         await ctx.send(embed = embed)
         await ctx.message.delete()
