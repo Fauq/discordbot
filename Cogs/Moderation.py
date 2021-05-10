@@ -130,15 +130,15 @@ class Moderation(commands.Cog, name="Mod"):
             await ctx.send(embed=embed)
             await channel.send(embed=log_embed)
      
-    @commands.command(description="Nukes the channel this command is ran in")
-    @commands.has_any_role("Admin", "Head Admin", "Owner", "Community Manager", "Co Owner", "Giveaway Manager")
+    @commands.command(description="Nukes the Drops channel")
+    @commands.has_any_role("Giveaways", "Owner", "Community Manager", "Co Owner", "Giveaway Manager")
     async def nuke(self, ctx, channel: discord.TextChannel = None):
         def confirm(messages):
             return messages.author == ctx.author
 
         nuke_channel = get(ctx.guild.text_channels, name="・🎉୧。quick-drops")
 
-        confirmation_embed = discord.Embed(title="❗ Confirmation ❗", description=f"Are you sure you want to nuke this channel, {ctx.author.mention}? (y/n)", color=discord.Colour.greyple())
+        confirmation_embed = discord.Embed(title="❗ Confirmation ❗", description=f"Are you sure you want to nuke the quick-drops channel, {ctx.author.mention}? (y/n)", color=discord.Colour.greyple())
         success_embed = discord.Embed(title="✅ Channel Nuked! ✅", description=f"Channel was nuked by {ctx.author.mention}", color=discord.Color.greyple())
         cancelled_embed = discord.Embed(title="❌ Cancelled ❌", description="Nuking cancelled!", color=discord.Color.greyple())
         invalid_embed = discord.Embed(title="❕ Invalid ❕", description="The response you entered is invalid.", color=discord.Color.greyple())
