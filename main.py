@@ -23,7 +23,7 @@ client.load_extension("jishaku")
 @client.event
 async def on_ready():
     print('Bot is ready.')
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Fauqs smol pp"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=".gg/bobux in status for free robux"))
    
 
 initial_extensions = [
