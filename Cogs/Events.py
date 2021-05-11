@@ -72,7 +72,7 @@ class Events(commands.Cog, name="Events"):
         embed.set_thumbnail(url = "https://media.discordapp.net/attachments/732785699685793822/829102797910966332/unknown.png")
         embed.set_image(url = "https://media.discordapp.net/attachments/841360219782119434/841706416435888138/kek.png")
         embed.set_footer(text= "You are our" f"{guild.member_count}""th member!")
-        await self.bot.get_channel(841360219782119434).send(f"{member.mention} greetings!", embed = embed)
+        await self.bot.get_channel(689638287429992469).send(f"{member.mention} greetings!", embed = embed)
 
 
 def setup(bot):
