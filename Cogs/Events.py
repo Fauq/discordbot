@@ -49,15 +49,17 @@ class Events(commands.Cog, name="Events"):
                 await after.remove_roles(supporter, reason="Removed gg/bobux from status")
 
         
-        
-
+     
+  
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         msg_channel = 689638287429992469
+        wordsss = ["@everyone", "@here", "@"]
         channel = self.bot.get_channel(msg_channel)
         if message.guild is None and not message.author.bot:
-            if match("@everyone", message.content) is not None:
+            if any(homo in message.content.lower() for homo in wordsss):
                 print(message.content)
+                await message.channel.send("Don't try to ping anything lardfucker")
                 pass
             else:
                 await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
