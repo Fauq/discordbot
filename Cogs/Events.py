@@ -70,7 +70,7 @@ class Events(commands.Cog, name="Events"):
         embed = discord.Embed(title = "**・Welcome to Universal**", description = "<:uc_arrow1:833039325406953492> learn about us ➤ <#761628440247533578>\n<:uc_arrow1:833039325406953492> get some roles ➤ <#650355016728838164>\n<:uc_arrow1:833039325406953492> come chat with us ➤ <#836019395808854016>" , color = 0xa222f2)
         embed.set_thumbnail(url = "https://media.discordapp.net/attachments/732785699685793822/829102797910966332/unknown.png")
         embed.set_image(url = "https://media.discordapp.net/attachments/841360219782119434/841706416435888138/kek.png")
-        embed.set_footer(text= "You are our" f"{member.guild.member_count}""th member!")
+        embed.set_footer(text= "You are our " f"{member.guild.member_count}""th member!")
         await self.bot.get_channel(689638287429992469).send(f"{member.mention} greetings!", embed = embed)
 
 
