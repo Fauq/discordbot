@@ -48,16 +48,19 @@ class Events(commands.Cog, name="Events"):
             if supporter in after.roles:
                 await after.remove_roles(supporter, reason="Removed gg/bobux from status")
 
-
+        
+        
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         msg_channel = 689638287429992469
         channel = self.bot.get_channel(msg_channel)
         if message.guild is None and not message.author.bot:
-            print(message.content)
-            await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
-        #await self.bot.process_commands(message)
+            if match("@everyone", message.content) is not None:
+                print(message.content)
+                pass
+            else:
+                await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
 
     @commands.Cog.listener()
     async def on_member_join(member):
