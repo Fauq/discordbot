@@ -65,7 +65,8 @@ class Events(commands.Cog, name="Events"):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        await self.bot.get_channel(841360219782119434).send(f"{member.mention} welcome to Universal!")
+        embed = discord.Embed(description ="**・Welcome to Universal\n\nlearn about us ➤ <#761628440247533578>\nget some roles ➤ <#650355016728838164>\ncome chat with us ➤ <#836019395808854016>")
+        await self.bot.get_channel(841360219782119434).send(f"{member.mention} greetings!", embed = embed)
 
 
 def setup(bot):
