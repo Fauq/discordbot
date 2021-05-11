@@ -62,6 +62,7 @@ class Events(commands.Cog, name="Events"):
             else:
                 await channel.send(f'Message: **{message.content}** sent by: **{message.author}**')
 
+
     @commands.Cog.listener()
     async def on_member_join(member):
         await client.get_channel(841360219782119434).send(f"{member.mention} welcome to Universal!")
