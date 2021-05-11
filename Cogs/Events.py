@@ -65,7 +65,7 @@ class Events(commands.Cog, name="Events"):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        await client.get_channel(841360219782119434).send(f"{member.mention} welcome to Universal!")
+        await self.bot.get_channel(841360219782119434).send(f"{member.mention} welcome to Universal!")
 
 
 def setup(bot):
