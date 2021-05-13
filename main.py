@@ -104,11 +104,6 @@ async def is_uc(ctx):
     return ctx.guild and ctx.guild.id == 650354577828216853
 
 
-@client.event
-async def on_ready():
-    print("ready")
-
-
 
 async def do_flip():
     options = ["heads", "tails"]
