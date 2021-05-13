@@ -170,7 +170,7 @@ async def cf_start(ctx, guess, bet: int = 1):
             current_games.pop(ctx.channel.id, None)
             await ctx.send(f"The coin-flip match expired due to inactivity.")
         return
-    await ctx.send("There is already a coin-flip game going on in this channel. write `$cf join`")
+    await ctx.send("There is already a coin-flip game going on in this channel. write `*cf join`")
 
 
 @cf.command(name="join")
