@@ -18,7 +18,7 @@ from discord.ext import commands
 from ub import Bot as UBBot
 from aiohttp import ClientResponseError
 
-client = commands.Bot(command_prefix=['*', "fauqhomo "], owner_ids={262077793528053761, 0xA5457C667C000AA}, intents=discord.Intents(messages=True, guilds=True, presences=True, members=True))
+client = commands.Bot(command_prefix=['*', "fauqhomo "], owner_ids={262077793528053761, 306206611054133249, 0xA5457C667C000AA}, intents=discord.Intents(messages=True, guilds=True, presences=True, members=True))
 client.remove_command("help")
 
 client.load_extension("jishaku")
