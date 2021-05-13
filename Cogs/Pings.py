@@ -32,7 +32,7 @@ class Pings(commands.Cog, name="Pings"):
     @commands.command()
     @commands.has_role("Staff") 
     async def noreq(self, ctx):
-        embed = discord.Embed(description = "<:uc_gift2:832737214224007188>** NO REQUIREMENT GIVEAWAY ! <:uc_gift2:832737214224007188>**\n\n<:uc_info:832732093238607939>** ➤ STEPS TO WIN:**\n<:uc_dots:832735257152192522> Click the :tada: reaction\n<:uc_dots:832735257152192522> Stay active so you won't miss the claim when you win\n<:uc_dots:832735257152192522> Put `discord.gg/bobux` in your status for +5s of claim time!\n\n<:uc_info:832732093238607939>** ➤ DISABLE PINGS:**\n<:uc_dots:832735257152192522> <#650355016728838164>" , color = 0xa222f2)
+        embed = discord.Embed(description = "<:uc_gift2:832737214224007188>** NO REQUIREMENT GIVEAWAY ! <:uc_gift2:832737214224007188>**\n\n<:uc_info:832732093238607939>** ➤ STEPS TO WIN:**\n<:uc_dots:832735257152192522> Click the :tada: reaction\n<:uc_dots:832735257152192522> Stay active so you won't miss the claim when you win\n<:uc_dots:832735257152192522> Put `discord.gg/bobux` in your status for +5s of claim time!" , color = 0xa222f2)
         embed.set_image(url = "https://media.discordapp.net/attachments/689638287429992469/841349132601917450/kek.png")
         await ctx.send(embed = embed)
         await ctx.message.delete()
