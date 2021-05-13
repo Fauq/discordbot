@@ -114,7 +114,7 @@ class Moderation(commands.Cog, name="Mod"):
         channel = ctx.guild.get_channel(channelID)
         reason = "No Reason Provided"
 
-        embed=discord.Embed(title="Kicked", description=f"{member} was kicked | {reason}", color=discord.Color.red())
+        embed=discord.Embed(title="Kicked", description=f"*{member} was kicked* | {reason}", color=discord.Color.red())
         user_embed = discord.Embed(title="Kicked!", description=f"You were kick from **{member.guild}** for **{reason}**.", color=discord.Color.blue())
     
         log_embed = discord.Embed(color=discord.Color.purple(), timestamp=datetime.now())
