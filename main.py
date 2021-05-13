@@ -88,13 +88,6 @@ async def reload_(ctx, extension):
     else:
         await ctx.send(f"Only the bot owner can use this command")
     
-@client.event
-async def on_command_error(ctx, error):
-  if isinstance(error, commands.CommandNotFound):
-    return
-  if isinstance(error, commands.CommandOnCooldown):
-    return await ctx.send(f"{error}")
-  raise error from error
 
 tfile = open("tokens.txt")
 read = tfile.read().splitlines()
