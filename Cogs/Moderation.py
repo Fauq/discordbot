@@ -136,7 +136,7 @@ class Moderation(commands.Cog, name="Mod"):
         def confirm(messages):
             return messages.author == ctx.author
 
-        nuke_channel = get(ctx.guild.text_channels, name="・🎉୧。quick-drops")
+        nuke_channel = get(ctx.guild.text_channels, name="・🎉୧。fast-drops")
 
         confirmation_embed = discord.Embed(title="❗ Confirmation ❗", description=f"Are you sure you want to nuke the quick-drops channel, {ctx.author.mention}? (y/n)", color=discord.Colour.greyple())
         success_embed = discord.Embed(title="✅ Channel Nuked! ✅", description=f"Channel was nuked by {ctx.author.mention}", color=discord.Color.greyple())
