@@ -109,21 +109,6 @@ async def on_ready():
     print("ready")
 
 
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandInvokeError):
-        error = error.original
-    if isinstance(error, commands.CommandNotFound):
-        pass
-    elif isinstance(error, commands.BadArgument):
-        em = discord.Embed(title=None, description=f"Bad Argument: {error}", color=discord.Color.red())
-        await ctx.send(embed=em)
-    elif isinstance(error, commands.MissingRequiredArgument):
-        em = discord.Embed(title=None, description=f"Missing Required Argument: {error}", color=discord.Color.red())
-        await ctx.send(embed=em)
-    else:
-        await ctx.send(f"Unhandled Error: {error.__class__.__name__}: {error}")
-
 
 async def do_flip():
     options = ["heads", "tails"]
