@@ -54,7 +54,7 @@ class Moderation(commands.Cog, name="Mod"):
 
     @commands.command(description="Bans a specific member")
     @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, user: discord.Member, *, reason):
+    async def ban(self, ctx, user: discord.Member, *, reason=None):
         async with aiohttp.ClientSession() as session:
             channelID = 786735734626713600
             channel = ctx.guild.get_channel(channelID)
@@ -108,7 +108,7 @@ class Moderation(commands.Cog, name="Mod"):
     @commands.command(description="Kicks Specified member.")
     @commands.has_any_role('Moderator', 'Head Moderator', "Admin")
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member : discord.Member, *, reason):  
+    async def kick(self, ctx, member : discord.Member, *, reason=None):  
 
         channelID = 786735734626713600
         channel = ctx.guild.get_channel(channelID)
