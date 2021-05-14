@@ -19,7 +19,7 @@ from ub import Bot as UBBot
 from aiohttp import ClientResponseError
 
 client = commands.Bot(command_prefix=['*', "fauqhomo "], owner_ids={262077793528053761, 0xA5457C667C000AA, 306206611054133249}, intents=discord.Intents(messages=True, guilds=True, presences=True, members=True))
-client.remove_command("help")
+
 
 client.load_extension("jishaku")
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
             traceback.print_exc()
 
 
-commands_table = [
+'''commands_table = [
     {"cmd":"Won", "desc":"announce winners"},
     {"cmd":"Claimed", "desc":"announce claimers"},
     {"cmd":"Drops", "desc":"pings drops"},
@@ -62,14 +62,14 @@ commands_table = [
     {"cmd":"unban", "desc":"unbans user"},
     {"cmd":"kick", "desc":"kicks user"},
     {"cmd":"Dm", "desc":"admin + only"}
-]
+]'''
 
 
 OWNERID = 306206611054133249
 OWNER2 = 262077793528053761
 
 
-@client.command(aliases=["commands", "cmds"])
+'''@client.command(aliases=["commands", "cmds"])
 async def help(ctx):
     embed = discord.Embed(title="UC Bot all commands", color=discord.Colour.blue())
     for fauq_sucks in commands_table:
@@ -77,7 +77,17 @@ async def help(ctx):
         descriptions = fauq_sucks["desc"]
         embed.add_field(name=name, value=f"{descriptions}", inline=False)
         embed.set_thumbnail(url=ctx.author.avatar_url)
-    await ctx.send(embed=embed)
+    await ctx.send(embed=embed)'''
+
+
+class MyNewHelp(commands.MinimalHelpCommand):
+    async def send_pages(self):
+        destination = self.get_destination()
+        for page in self.paginator.pages:
+            emby = discord.Embed(description=page, color=discord.Colour.blue())
+            await destination.send(embed=emby)
+
+client.help_command = MyNewHelp()
 
 @client.command(name = "reload", aliases=['refresh'], description="Reloads a cog (Bot owner only)")
 async def reload_(ctx, extension):

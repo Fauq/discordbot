@@ -54,10 +54,14 @@ class Moderation(commands.Cog, name="Mod"):
 
     @commands.command(description="Bans a specific member")
     @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, user: discord.Member, *, reason="No Reason Provided."):
+    async def ban(self, ctx, user: discord.Member, *, reason=None):
         async with aiohttp.ClientSession() as session:
             channelID = 786735734626713600
             channel = ctx.guild.get_channel(channelID)
+            
+            if reason == None:
+                reason = "No reason provided"  
+                
             webhook = Webhook.from_url('https://discord.com/api/webhooks/839170018142847008/h2bdEgBozIheGZehzYBlMb_tMwHWg3dbI-bT7cnC441XO8iUDNhKNFaHLMDGywAd3PvF', adapter=AsyncWebhookAdapter(session))
             embed = discord.Embed(description=f"***{user} was banned*** | {reason}", color=discord.Color.blue())
             user_embed = discord.Embed(title="Banned!", description=f"You were banned in **{user.guild}** for **{reason}**.", color=discord.Color.blue())
@@ -107,12 +111,16 @@ class Moderation(commands.Cog, name="Mod"):
     @commands.command(description="Kicks Specified member.")
     @commands.has_any_role('Moderator', 'Head Moderator', "Admin")
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member : discord.Member, *, reason="No reason provided"):  
+    async def kick(self, ctx, member : discord.Member, *, reason=None):  
 
         channelID = 786735734626713600
         channel = ctx.guild.get_channel(channelID)
+       
+        
+        if reason == None:
+            reason = "No reason provided"
 
-        embed=discord.Embed(title="Kicked", description=f"{member} was kicked | {reason}", color=discord.Color.red())
+        embed=discord.Embed(title="Kicked", description=f"*{member} was kicked* | {reason}", color=discord.Color.red())
         user_embed = discord.Embed(title="Kicked!", description=f"You were kick from **{member.guild}** for **{reason}**.", color=discord.Color.blue())
     
         log_embed = discord.Embed(color=discord.Color.purple(), timestamp=datetime.now())
