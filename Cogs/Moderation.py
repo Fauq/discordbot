@@ -58,10 +58,11 @@ class Moderation(commands.Cog, name="Mod"):
         async with aiohttp.ClientSession() as session:
             channelID = 786735734626713600
             channel = ctx.guild.get_channel(channelID)
+
             
             if reason == None:
-                reason = "No reason provided"  
-                
+                reason = "No reason provided"
+
             webhook = Webhook.from_url('https://discord.com/api/webhooks/839170018142847008/h2bdEgBozIheGZehzYBlMb_tMwHWg3dbI-bT7cnC441XO8iUDNhKNFaHLMDGywAd3PvF', adapter=AsyncWebhookAdapter(session))
             embed = discord.Embed(description=f"***{user} was banned*** | {reason}", color=discord.Color.blue())
             user_embed = discord.Embed(title="Banned!", description=f"You were banned in **{user.guild}** for **{reason}**.", color=discord.Color.blue())
@@ -80,11 +81,16 @@ class Moderation(commands.Cog, name="Mod"):
             elif user.guild_permissions.ban_members:
                 await ctx.send(f"Bro, {user} has ban perms, you are sped")
             else:
-                await user.send(embed=user_embed)
-                await ctx.send(embed=embed)
-                await channel.send(embed=log_embed)
-                await webhook.send(embed=log_embed)
-                await user.ban(reason=reason)
+                try:
+                    await user.send(embed=user_embed)
+                    await user.ban(reason=reason)
+                    await ctx.send(embed=embed)
+                    await channel.send(embed=log_embed)
+                    await webhook.send(embed=log_embed)
+                except:
+                    await ctx.send("User has DMS off.", embed=embed)
+                    await user.ban(reason=reason)
+                    await webhook.send(embed=log_embed)
 
 
     @commands.command(description="Unbans a user")
