@@ -177,7 +177,7 @@ class Moderation(commands.Cog, name="Mod"):
 
 
     @commands.command(description="Rewards blacklist a user", aliases=["rewardsblacklist", "rewards_blacklist", "blacklist"])
-    @commands.has_role("Staff")
+    @commands.has_any_role("Staff", "Ticket Manager")
     async def rblacklist(self, ctx, user: discord.Member, *, reason = "No reason provided"):
         if not user:
             await ctx.send("please provide a valid user")
