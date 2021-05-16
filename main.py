@@ -91,6 +91,7 @@ class MyNewHelp(commands.MinimalHelpCommand):
 client.help_command = MyNewHelp()
 
 @client.command(name = "reload", aliases=['refresh'], description="Reloads a cog (Bot owner only)")
+@commands.is_owner()
 async def reload_(ctx, extension):
     embed = discord.Embed(title="Success!", description=f"I have successfully reloaded the Cog `{extension}`", color=discord.Color.blue())
     if ctx.author.id == OWNERID or ctx.author.id == OWNER2:
@@ -98,7 +99,6 @@ async def reload_(ctx, extension):
         await ctx.send(embed=embed) 
     else:
         await ctx.send(f"Only the bot owner can use this command")
-    
 
 tfile = open("tokens.txt")
 read = tfile.read().splitlines()
