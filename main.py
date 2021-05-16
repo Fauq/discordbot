@@ -85,6 +85,7 @@ class MyNewHelp(commands.MinimalHelpCommand):
         destination = self.get_destination()
         for page in self.paginator.pages:
             emby = discord.Embed(description=page, color=discord.Colour.blue())
+            emby.set_footer(text="~ ava chan is the best")
             await destination.send(embed=emby)
 
 client.help_command = MyNewHelp()
