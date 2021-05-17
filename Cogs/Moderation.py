@@ -121,12 +121,12 @@ class Moderation(commands.Cog, name="Mod"):
 
         channelID = 786735734626713600
         channel = ctx.guild.get_channel(channelID)
-       
+        
         
         if reason == None:
             reason = "No reason provided"
 
-        embed=discord.Embed(title="Kicked", description=f"*{member} was kicked* | {reason}", color=discord.Color.red())
+        embed=discord.Embed(title="Kicked", description=f"{member} was kicked | {reason}", color=discord.Color.red())
         user_embed = discord.Embed(title="Kicked!", description=f"You were kick from **{member.guild}** for **{reason}**.", color=discord.Color.blue())
     
         log_embed = discord.Embed(color=discord.Color.purple(), timestamp=datetime.now())
@@ -139,10 +139,18 @@ class Moderation(commands.Cog, name="Mod"):
         if member.guild_permissions.kick_members:
             await ctx.send("That user is a Mod or higher bruh")
         else:
-            await member.send(embed=user_embed)
-            await member.kick(reason=reason)
-            await ctx.send(embed=embed)
-            await channel.send(embed=log_embed)
+            try:
+                await member.send(embed=user_embed)
+                await member.kick(reason=reason)
+                await ctx.message.delete()
+                await ctx.send(embed=embed)
+                await channel.send(embed=log_embed)
+            except:
+                await ctx.send("Unable to DM user", embed=embed)
+                await member.kick(reason=reason)
+                await ctx.message.delete()
+                await channel.send(embed=log_embed)
+
      
     @commands.command(description="Nukes the Drops channel")
     @commands.has_any_role("Giveaways", "Owner", "Community Manager", "Co Owner", "Giveaway Manager")
