@@ -48,10 +48,10 @@ class Pings(commands.Cog, name="Pings"):
 
     @commands.command()
     @commands.has_role("Admin")
-    async def claimed(self, ctx, arg1, arg2, *, arg3):
+    async def claimed(self, ctx, user: discord.Member, reward, *, how):
         channel = ctx.guild.get_channel(804402670940454973)
         emoji = 'LEGIT:834500768912113724'
-        message = await channel.send("[ <@{}> ] claimed `{}` from {}".format(arg1, arg2, arg3))
+        message = await channel.send("[{}] claimed `{}` from {}".format(user.mention, reward, how))
         await message.add_reaction(emoji="LEGIT:834500768912113724")
         await ctx.message.delete()
 

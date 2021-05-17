@@ -85,11 +85,13 @@ class MyNewHelp(commands.MinimalHelpCommand):
         destination = self.get_destination()
         for page in self.paginator.pages:
             emby = discord.Embed(description=page, color=discord.Colour.blue())
+            emby.set_footer(text="~ ava chan is the best")
             await destination.send(embed=emby)
 
 client.help_command = MyNewHelp()
 
 @client.command(name = "reload", aliases=['refresh'], description="Reloads a cog (Bot owner only)")
+@commands.is_owner()
 async def reload_(ctx, extension):
     embed = discord.Embed(title="Success!", description=f"I have successfully reloaded the Cog `{extension}`", color=discord.Color.blue())
     if ctx.author.id == OWNERID or ctx.author.id == OWNER2:
@@ -97,7 +99,6 @@ async def reload_(ctx, extension):
         await ctx.send(embed=embed) 
     else:
         await ctx.send(f"Only the bot owner can use this command")
-    
 
 tfile = open("tokens.txt")
 read = tfile.read().splitlines()
