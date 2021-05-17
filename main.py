@@ -232,4 +232,4 @@ async def cf_current(ctx):
 
 
 
-client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.LOvyiP6juG5Qb3Pnun_f-R-mwlk")
+client.run("ODQzOTk5OTcyODcyNTUyNDQ5.YKMCOg.xb5fJq961mqYQJh-hgQYOTNv748")

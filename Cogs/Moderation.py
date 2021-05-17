@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands 
 from datetime import datetime
+from discord.ext import tasks
 import asyncio
 import random
 import time
@@ -21,17 +22,14 @@ class Moderation(commands.Cog, name="Mod"):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(description="Admin+")
-    @commands.has_permissions(administrator=True)
-    async def banalt(self, ctx):
+    @tasks.loop(seconds=5.0)
+    async def banalt(self):
         res = []
         time = datetime.now()
-        for mem in ctx.guild.members:
+        for mem in self.guild.members:
             if (time - mem.created_at).total_seconds() <= 604800:
                 res.append(mem.id)
                 await mem.kick(reason='alt')
-
-        await ctx.send(res)
 
 
     @commands.command(description="Admin+")
