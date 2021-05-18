@@ -26,7 +26,8 @@ class Moderation(commands.Cog, name="Mod"):
     async def banalt(self):
         res = []
         time = datetime.now()
-        for mem in self.guild.members:
+        guild = self.bot.guilds[0]
+        for mem in guild.members:
             if (time - mem.created_at).total_seconds() <= 604800:
                 res.append(mem.id)
                 await mem.kick(reason='alt')
