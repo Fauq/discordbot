@@ -32,6 +32,11 @@ class Moderation(commands.Cog, name="Mod"):
                 await mem.kick(reason='alt')
     banalt.start()
 
+    @banalt.before_loop
+    async def before_printer(self):
+        print('Sup chillin before runnin :kek:')
+        await self.bot.wait_until_ready()
+
 
     @commands.command(description="Admin+")
     @commands.has_role("Admin")
