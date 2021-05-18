@@ -31,6 +31,7 @@ class Moderation(commands.Cog, name="Mod"):
             if (time - mem.created_at).total_seconds() <= 604800:
                 res.append(mem.id)
                 await mem.kick(reason='alt')
+    banalt.start()
 
 
     @commands.command(description="Admin+")
