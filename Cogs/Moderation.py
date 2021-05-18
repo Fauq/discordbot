@@ -21,22 +21,24 @@ from discord import Webhook, AsyncWebhookAdapter
 class Moderation(commands.Cog, name="Mod"):
     def __init__(self, bot):
         self.bot = bot
+        self.banalt.start()
 
     @tasks.loop(seconds=5.0)
     async def banalt(self):
         res = []
+        guild = self.bot.get_guild(790316465014308875)
         time = datetime.now()
-        for mem in self.bot.guild.members:
+        for mem in guild.members:
             if (time - mem.created_at).total_seconds() <= 604800:
                 res.append(mem.id)
                 await mem.kick(reason='alt')
-    banalt.start()
+                print(f"kicked {mem.name}")
 
+        
     @banalt.before_loop
     async def before_printer(self):
         print('Sup chillin before runnin :kek:')
         await self.bot.wait_until_ready()
-
 
     @commands.command(description="Admin+")
     @commands.has_role("Admin")
