@@ -217,10 +217,18 @@ class Moderation(commands.Cog, name="Mod"):
         log_embed.add_field(name="Reason:", value=f"{reason}")
         log_embed.set_footer(text="\u200b")
 
-        await user.send(embed=user_embed)
-        await user.add_roles(role)
-        await ctx.send(embed=success_embed)
-        await channel.send(embed=log_embed)
+        if user == self.bot.user:
+            await ctx.send("Dont try to blacklist me")
+        else:
+            try:
+                await user.send(embed=user_embed)
+                await user.add_roles(role)
+                await ctx.send(embed=success_embed)
+                await channel.send(embed=log_embed)
+            except:
+                await user.add_roles(role)
+                await ctx.send("I wasn't able to DM this user", embed=success_embed)
+                await channel.send(embed=log_embed)
 
 
 
