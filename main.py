@@ -34,7 +34,8 @@ initial_extensions = [
 'Cogs.Moderation',
 'Cogs.Pings',
 'Cogs.PublicCMDS',
-'Cogs.Errors'
+'Cogs.Errors',
+'Cogs.filter'
 ]
                     
 if __name__ == '__main__':
