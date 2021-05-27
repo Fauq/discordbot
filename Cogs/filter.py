@@ -25,7 +25,7 @@ class Events(commands.Cog, name="Events"):
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         async with aiohttp.ClientSession() as session:
-            log_channel = 641738443122278404
+            log_channel = 786735734626713600
             filter_list = ["nigga", "nigger", "n1gga", "nigg3r", "n!gg3r"]
             channel = self.bot.get_channel(log_channel)
 
