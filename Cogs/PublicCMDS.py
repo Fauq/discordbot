@@ -61,7 +61,7 @@ class PublicCMDS(commands.Cog, name="Public"):
         
 
         
-        if check_level >= 9 and check_level < 20:
+        if check_level > 9 and check_level < 20:
             if role6:
                 embed_error.description=f"You already have the role"
                 await ctx.send(embed=embed_error) 
