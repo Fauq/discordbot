@@ -49,7 +49,7 @@ class Moderation(commands.Cog, name="Mod"):
 
     
     @commands.command(description="Makes a poll", aliases=["makepoll", "poll"])
-    @commands.has_permissions(manage_messages=True)
+    @commands.has_role("Admin")
     async def setpoll(self, ctx, *, message):
         em=discord.Embed(title="Server Poll", description=f"{message}", color=discord.Color.greyple())
         msg=await ctx.channel.send(embed=em)
