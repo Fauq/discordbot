@@ -40,12 +40,12 @@ class Moderation(commands.Cog, name="Mod"):
         print('Sup chillin before runnin :kek:')
         await self.bot.wait_until_ready()
 
-    '''@commands.command(description="Admin+")
-    @commands.has_role("Admin")
+    @commands.command(description="Admin+")
+    @commands.is_owner()
     async def dm(self, ctx, member: discord.Member, *, message):
         dm = await member.create_dm()
         await dm.send(message)
-        await ctx.send("sent")'''
+        await ctx.send("sent")
 
     
     @commands.command(description="Makes a poll", aliases=["makepoll", "poll"])
