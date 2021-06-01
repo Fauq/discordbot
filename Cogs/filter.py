@@ -30,7 +30,7 @@ class Events(commands.Cog, name="Events"):
             webhook = Webhook.from_url('https://discord.com/api/webhooks/839170018142847008/h2bdEgBozIheGZehzYBlMb_tMwHWg3dbI-bT7cnC441XO8iUDNhKNFaHLMDGywAd3PvF', adapter=AsyncWebhookAdapter(session))
 
             user_embed = discord.Embed(title="Banned!", 
-                                    description=f"You have been **Banned** by from Universal Central for saying the N word. If you wish to appeal, join the server below.", 
+                                    description=f"You have been **Banned** from Universal Central for saying the N word. If you wish to appeal, join the server below.", 
                                     color=discord.Color.red(), timestamp=datetime.now())
             user_embed.add_field(name="Appeal Server:", value="https://discord.gg/dkaBMKsWEy", inline=False)
 
