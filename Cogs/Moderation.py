@@ -96,6 +96,7 @@ class Moderation(commands.Cog, name="Mod"):
                 except:
                     await ctx.send("User has DMS off.", embed=embed)
                     await user.ban(reason=reason)
+                    await channel.send(embed=log_embed)
                     await webhook.send(embed=log_embed)
 
 
