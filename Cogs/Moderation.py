@@ -41,7 +41,7 @@ class Moderation(commands.Cog, name="Mod"):
         await self.bot.wait_until_ready()
 
     @commands.command(description="Admin+")
-    @commands.has_role("Admin")
+    @commands.is_owner()
     async def dm(self, ctx, member: discord.Member, *, message):
         dm = await member.create_dm()
         await dm.send(message)
@@ -96,6 +96,7 @@ class Moderation(commands.Cog, name="Mod"):
                 except:
                     await ctx.send("User has DMS off.", embed=embed)
                     await user.ban(reason=reason)
+                    await channel.send(embed=log_embed)
                     await webhook.send(embed=log_embed)
 
 
