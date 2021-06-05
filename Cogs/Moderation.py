@@ -62,7 +62,7 @@ class Moderation(commands.Cog, name="Mod"):
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, user: discord.Member, *, reason=None):
         async with aiohttp.ClientSession() as session:
-            channelID = 786735734626713600
+            channelID = 835347816187822136
             channel = ctx.guild.get_channel(channelID)
 
             
@@ -103,7 +103,7 @@ class Moderation(commands.Cog, name="Mod"):
     @commands.command(description="Unbans a user")
     @commands.has_role("Admin")
     async def unban(self, ctx, id: int):
-        channelID = 786735734626713600
+        channelID = 835347816187822136
         channel = ctx.guild.get_channel(channelID)
         user = await self.bot.fetch_user(id)
         embed = discord.Embed(description=f"***{user} was unbanned!***", color=discord.Color.green())
@@ -126,7 +126,7 @@ class Moderation(commands.Cog, name="Mod"):
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member : discord.Member, *, reason=None):  
 
-        channelID = 786735734626713600
+        channelID = 835347816187822136
         channel = ctx.guild.get_channel(channelID)
         
         
@@ -198,7 +198,7 @@ class Moderation(commands.Cog, name="Mod"):
             await ctx.send("please provide a valid user")
 
         role = get(ctx.guild.roles, name="Rewards Blacklisted")
-        channelID = 837356438544187402
+        channelID = 835347816187822136
         channel = ctx.guild.get_channel(channelID)
         user_embed = discord.Embed(title="Blacklisted!", 
                                 description=f"You have been **rewards backlisted** by {ctx.author} for **{reason}**. If you believe this is false, go ahead and appeal.", 
