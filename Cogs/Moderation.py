@@ -26,7 +26,7 @@ class Moderation(commands.Cog, name="Mod"):
     @tasks.loop(seconds=5.0)
     async def banalt(self):
         res = []
-        guild = self.bot.get_guild(650354577828216853)
+        guild = self.bot.get_guild(835347802661453855)
         time = datetime.now()
         for mem in guild.members:
             if (time - mem.created_at).total_seconds() <= 259200:
