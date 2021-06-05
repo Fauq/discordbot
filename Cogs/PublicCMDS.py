@@ -39,25 +39,25 @@ class PublicCMDS(commands.Cog, name="Public"):
 
         embed_error = discord.Embed(title="❌ Error! ❌", color=discord.Color.blurple())
         
-        role = get(ctx.guild.roles, name="Active | Lvl 10+")
+        role = get(ctx.guild.roles, name="[10+] Active")
 
-        role2 = get(ctx.guild.roles, name="Dedicated | Lvl 20+") 
+        role2 = get(ctx.guild.roles, name="[20+] Dedicated") 
         
-        role3 = get(ctx.guild.roles, name="Godly | Lvl 30+") 
+        role3 = get(ctx.guild.roles, name="[30+] Insane") 
         
-        role4 = get(ctx.guild.roles, name="Insane | Lvl 40+")
+        role4 = get(ctx.guild.roles, name="[40+] Addicted")
 
-        role5 = get(ctx.guild.roles, name="No Life | Lvl 50+") 
+        role5 = get(ctx.guild.roles, name="[50+] Discord is My Life") 
         
-        role6 = get(ctx.author.roles, name="Active | Lvl 10+")
+        role6 = get(ctx.author.roles, name="[10+] Active")
 
-        role7 = get(ctx.author.roles, name="Dedicated | Lvl 20+") 
+        role7 = get(ctx.author.roles, name="[20+] Dedicated") 
         
-        role8 = get(ctx.author.roles, name="Godly | Lvl 30+") 
+        role8 = get(ctx.author.roles, name="[30+] Insane") 
         
-        role9 = get(ctx.author.roles, name="Insane | Lvl 40+")
+        role9 = get(ctx.author.roles, name="[40+] Addicted")
 
-        role10 = get(ctx.author.roles, name="No Life | Lvl 50+") 
+        role10 = get(ctx.author.roles, name="[50+] Discord is My Life") 
         
 
         
