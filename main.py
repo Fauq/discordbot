@@ -113,7 +113,7 @@ ub_bot.current_games = current_games
 
 @client.check
 async def is_uc(ctx):
-    return ctx.guild and ctx.guild.id == 650354577828216853
+    return ctx.guild and ctx.guild.id == 835347802661453855
 
 
 
