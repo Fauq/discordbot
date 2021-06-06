@@ -14,7 +14,7 @@ from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Webhook, AsyncWebhookAdapter
 
 
-mee6API = API(650354577828216853)
+mee6API = API(835347802661453855)
 
 class PublicCMDS(commands.Cog, name="Public"):
     def __init__(self, bot):
