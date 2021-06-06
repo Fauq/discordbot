@@ -95,7 +95,7 @@ class Pings(commands.Cog, name="Pings"):
     @commands.has_role("Staff")
     @commands.cooldown(1, 1800, commands.BucketType.guild)
     async def revive(self, ctx):
-        await ctx.send("<@&789928995055468574>")
+        await ctx.send("<@&835347802888077322>")
         await ctx.message.delete()
 
     @commands.command()
