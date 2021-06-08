@@ -38,7 +38,7 @@ class Events(commands.Cog, name="Events"):
 
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
-        supporter = discord.utils.get(after.guild.roles, name="Supporter")
+        supporter = discord.utils.get(after.guild.roles, name="Universal Supporter")
         if supporter is None:
             return
         if "gg/universal" in str(after.activity):
