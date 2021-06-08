@@ -41,12 +41,12 @@ class Events(commands.Cog, name="Events"):
         supporter = discord.utils.get(after.guild.roles, name="Supporter")
         if supporter is None:
             return
-        if "gg/bobux" in str(after.activity):
+        if "gg/universal" in str(after.activity):
             if supporter not in after.roles:
-                await after.add_roles(supporter, reason="Added gg/bobux to status")
-        elif "gg/bobux" not in str(after.activity) and after.status != discord.Status.offline:
+                await after.add_roles(supporter, reason="Added gg/universal to status")
+        elif "gg/universal" not in str(after.activity) and after.status != discord.Status.offline:
             if supporter in after.roles:
-                await after.remove_roles(supporter, reason="Removed gg/bobux from status")
+                await after.remove_roles(supporter, reason="Removed gg/universal from status")
 
         
      
