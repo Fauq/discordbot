@@ -21,9 +21,9 @@ from discord import Webhook, AsyncWebhookAdapter
 class Moderation(commands.Cog, name="Mod"):
     def __init__(self, bot):
         self.bot = bot
-        self.banalt.start()
+        #self.banalt.start()
 
-    @tasks.loop(seconds=5.0)
+    '''@tasks.loop(seconds=5.0)
     async def banalt(self):
         res = []
         guild = self.bot.get_guild(835347802661453855)
@@ -32,7 +32,7 @@ class Moderation(commands.Cog, name="Mod"):
             if (time - mem.created_at).total_seconds() <= 259200:
                 res.append(mem.id)
                 await mem.kick(reason='alt')
-                print(f"kicked {mem.name}")
+                print(f"kicked {mem.name}")'''
 
         
     @banalt.before_loop
