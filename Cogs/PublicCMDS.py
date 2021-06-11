@@ -14,13 +14,10 @@ from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Webhook, AsyncWebhookAdapter
-from discord_slash import SlashCommand, cog_ext, SlashContext
-from discord_slash.utils.manage_commands import create_permission
-from discord_slash.model import SlashCommandPermissionType
 
 
 mee6API = API(835347802661453855)
-guild_ids = [835347802661453855] 
+
 class PublicCMDS(commands.Cog, name="Public"):
     def __init__(self, bot):
         self.bot = bot
@@ -112,13 +109,6 @@ class PublicCMDS(commands.Cog, name="Public"):
         else:
             await ctx.send("You need to be 10+ to use this command.")
             return
-
-
-        
-    @cog_ext.cog_slash(name="dadjoke", description="Get a random dad joke", guild_ids=guild_ids)
-    async def dadjoke(ctx):
-        joke = Dadjoke()
-        await ctx.send(joke.joke)
         
 def setup(bot):
     bot.add_cog(PublicCMDS(bot))
