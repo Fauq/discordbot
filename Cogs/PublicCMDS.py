@@ -8,7 +8,6 @@ import os
 import mee6_py_api
 import aiohttp
 import jishaku
-import discord_slash
 from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
