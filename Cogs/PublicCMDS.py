@@ -8,10 +8,15 @@ import os
 import mee6_py_api
 import aiohttp
 import jishaku
+import discord_slash
+from dadjokes import Dadjoke
 from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Webhook, AsyncWebhookAdapter
+from discord_slash import SlashCommand, cog_ext, SlashContext
+from discord_slash.utils.manage_commands import create_permission
+from discord_slash.model import SlashCommandPermissionType
 
 
 mee6API = API(835347802661453855)
