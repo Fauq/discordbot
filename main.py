@@ -15,12 +15,11 @@ from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Webhook, AsyncWebhookAdapter
 from discord.ext import commands
-from discord_slash import SlashCommand
 from ub import Bot as UBBot
 from aiohttp import ClientResponseError
 
 client = commands.Bot(command_prefix=['*', "fauqhomo "], owner_ids={262077793528053761, 0xA5457C667C000AA, 306206611054133249}, intents=discord.Intents(messages=True, guilds=True, presences=True, members=True))
-slash = SlashCommand(bot, sync_commands=True, sync_on_cog_reload=True)
+
 
 client.load_extension("jishaku")
 
