@@ -21,7 +21,7 @@ class Pings(commands.Cog, name="Pings"):
         self.bot = bot
 
     @commands.command()
-    @commands.has_role("Staff") 
+    @commands.has_role("Owner") 
     @commands.cooldown(1, 60, commands.BucketType.guild)
     async def won(self, ctx, user: discord.Member):
         embed = discord.Embed(description = "<:uc_info:832732093238607939>** ➤ FOLLOW THE TIPS:**\n<:uc_dots:832735257152192522> Put our server on top of all servers\n<:uc_dots:832735257152192522> Go to the channel and react fast when we ping\n<:uc_dots:832735257152192522> Be sure to participate every time to get free Robux/Nitro!\n\n<:uc_info:832732093238607939>** ➤ EXTRA CLAIM TIMES AND LUCK:**\n<:uc_dots:832735257152192522> <#804401736194326618>" , color = 0xa222f2)
@@ -30,7 +30,7 @@ class Pings(commands.Cog, name="Pings"):
         await ctx.message.delete()
 
     @commands.command()
-    @commands.has_role("Staff") 
+    @commands.has_role("Owner") 
     async def noreq(self, ctx):
         embed = discord.Embed(description = "<:uc_gift2:832737214224007188>** NO REQUIREMENT GIVEAWAY ! <:uc_gift2:832737214224007188>**\n\n<:uc_info:832732093238607939>** ➤ STEPS TO WIN:**\n<:uc_dots:832735257152192522> Click the :tada: reaction\n<:uc_dots:832735257152192522> Stay active so you won't miss the claim when you win\n<:uc_dots:832735257152192522> Put `discord.gg/bobux` in your status for +5s of claim time!" , color = 0xa222f2)
         embed.set_image(url = "https://media.discordapp.net/attachments/689638287429992469/841349132601917450/kek.png")
@@ -47,7 +47,7 @@ class Pings(commands.Cog, name="Pings"):
         await ctx.message.delete()
 
     @commands.command()
-    @commands.has_role("Admin")
+    @commands.has_role("Owner")
     async def claimed(self, ctx, user: discord.Member, reward, *, how):
         channel = ctx.guild.get_channel(804402670940454973)
         emoji = 'LEGIT:834500768912113724'
@@ -56,7 +56,7 @@ class Pings(commands.Cog, name="Pings"):
         await ctx.message.delete()
 
     @commands.command()
-    @commands.has_role("Admin")
+    @commands.has_role("Owner")
     async def end(self, ctx):
         embed = discord.Embed(title = "<:uc_info:832732093238607939> **Event Ended!**" , description = "\n<:uc_dots:832735257152192522> We will be paying those who opened a ticket on time.\n<:uc_dots:832735257152192522> Proof will be posted and logged in <#804402670940454973>\n<:uc_dots:832735257152192522> If you didn't get a ticket, you can always claim <#816809670848282624>\n<:uc_dots:832735257152192522> Be sure to participate every time to get free Robux/Nitro!" , color = 0xf6beb7)
         embed.set_image(url = "https://media.discordapp.net/attachments/832668988072394812/833858193888641135/invite-event.png?width=960&height=257")
@@ -64,14 +64,14 @@ class Pings(commands.Cog, name="Pings"):
         await ctx.message.delete()
  
     @commands.command()
-    @commands.has_role("Staff")
+    @commands.has_role("Owner")
     @commands.cooldown(1, 1500, commands.BucketType.guild)
     async def drops(self, ctx):
         await ctx.send("<@&726842011075870754>")
         await ctx.message.delete()
 
     @commands.command()
-    @commands.has_role("Staff")
+    @commands.has_role("Owner")
     @commands.cooldown(1, 300, commands.BucketType.guild)
     async def smallgiveaways(self, ctx):
         await ctx.send("<@&774841087231524905>")
@@ -81,14 +81,14 @@ class Pings(commands.Cog, name="Pings"):
     @commands.has_role("Staff")
     @commands.cooldown(1, 300, commands.BucketType.guild)
     async def partner(self, ctx):
-        await ctx.send("<@&660280585843114066>")
+        await ctx.send("<@&835347802888077328>")
         await ctx.message.delete()
 
     @commands.command()
     @commands.has_role("Staff")
     @commands.cooldown(1, 300, commands.BucketType.guild)
-    async def gamenight(self, ctx):
-        await ctx.send("<@&772899769966264341>")
+    async def events(self, ctx):
+        await ctx.send("<@&835347802888077325>")
         await ctx.message.delete()
 
     @commands.command()
@@ -102,7 +102,7 @@ class Pings(commands.Cog, name="Pings"):
     @commands.has_role("Giveaway Manager")
     @commands.cooldown(1, 3600, commands.BucketType.guild)
     async def giveaway(self, ctx):
-        await ctx.send("<@&655469786859438105>")
+        await ctx.send("<@&835347802888077331>")
         await ctx.message.delete()
 
 
