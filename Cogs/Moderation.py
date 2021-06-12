@@ -32,13 +32,13 @@ class Moderation(commands.Cog, name="Mod"):
             if (time - mem.created_at).total_seconds() <= 259200:
                 res.append(mem.id)
                 await mem.kick(reason='alt')
-                print(f"kicked {mem.name}")'''
+                print(f"kicked {mem.name}")
 
         
     @banalt.before_loop
     async def before_printer(self):
         print('Sup chillin before runnin :kek:')
-        await self.bot.wait_until_ready()
+        await self.bot.wait_until_ready()'''
 
     @commands.command(description="Admin+")
     @commands.is_owner()
