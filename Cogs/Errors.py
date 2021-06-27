@@ -14,10 +14,10 @@ class Errors(commands.Cog, name="Error"):
 
         if isinstance(error, commands.CommandNotFound):
             pass
+        elif isinstance(error, commands.CommandOnCoolDown)::
+            await ctx.reply(f'You can use this command again in: {round(error.retry_after, 2)} seconds')
         else:
             await ctx.send(embed=embed)
-        if isinstance(error, commands.CommandOnCoolDown):
-            await ctx.reply(f'You can use this command again in: {round(error.retry_after, 2)} seconds')
            
 
 
