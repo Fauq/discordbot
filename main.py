@@ -10,11 +10,16 @@ import aiohttp
 import jishaku
 import traceback
 import sys
+import random
+import asyncio
+from random import choice
 from mee6_py_api import API
 from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Webhook, AsyncWebhookAdapter
 from discord.ext import commands
+from discord.colour import Color, Colour
+from discord_components import *
 from ub import Bot as UBBot
 from aiohttp import ClientResponseError
 
@@ -26,6 +31,7 @@ client.load_extension("jishaku")
 @client.event
 async def on_ready():
     print('Bot is ready.')
+    DiscordComponents(client)
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=".gg/universal"))
    
 
