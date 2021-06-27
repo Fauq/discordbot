@@ -16,7 +16,9 @@ class Errors(commands.Cog, name="Error"):
             pass
         else:
             await ctx.send(embed=embed)
-            
+        elif isinstance(error, commands.CommandOnCoolDown):
+            await ctx.reply(f'You can use this command again in: {round(error.retry_after, 2)} seconds')
+           
 
 
 def setup(bot):
