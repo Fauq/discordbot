@@ -276,7 +276,7 @@ async def rps(ctx):
         components=[[Button(style=ButtonStyle.green, label="🧱"),Button(style=ButtonStyle.blue, label="📜"),Button(style=ButtonStyle.red, label="✂️")]
         ],
     )
-            res = await bot.wait_for("button_click", check=check, timeout=15)
+            res = await client.wait_for("button_click", check=check, timeout=15)
             player = res.component.label
             
             if player==comp:
