@@ -232,5 +232,91 @@ async def cf_current(ctx):
                     f"when: {when.strftime('%H:%M:%S GMT')}")
 
 
+@client.command()
+@commands.cooldown(1, 25, commands.BucketType.user)
+async def rps(ctx):
+    rpsGames = ['🧱', '📜', '✂️']
+    comp = choice(rpsGames)
+    before = await ub_bot.get_bal(ctx.guild.id, ctx.author.id)
+    
+    begin = discord.Embed(title="Rock Paper Scissors!", description="Select one of the choices below to play, everytime you win/lose you'll lose or gain 25 UB", color=discord.Colour.light_grey(), timestamp=ctx.message.created_at)
+    tie = discord.Embed(title="Tied!", description="Looks like we both tied this time!", color=discord.Colour.greyple(), timestamp=ctx.message.created_at)
+    tie.set_author(name=f"{ctx.author.name} | Tied", icon_url=ctx.author.avatar_url)
+
+    timed_out = discord.Embed(title="Timed out!", description="Oh no! The game timed out!", color=discord.Colour.orange(), timestamp=ctx.message.created_at)
+    timed_out.set_footer(text=f"Play again? | ")
+
+    lost_embed = discord.Embed(title="You've lost 25 UB!", description=f"Cash Remaining: {before.cash - 25}", color=discord.Colour.red(), timestamp=ctx.message.created_at)
+    lost_embed.set_author(name=f"{ctx.author.name} | Loser", icon_url=ctx.author.avatar_url)
+    lost_embed.set_footer(text=f"Play again? | ")
+
+    won_embed = discord.Embed(title="You've won 25 UB.", description=f"Cash Remaining: {before.cash + 25}", colour=discord.Colour.green(), timestamp=ctx.message.created_at)
+    won_embed.set_author(name=f"{ctx.author.name} | Winner", icon_url=ctx.author.avatar_url)
+    won_embed.set_footer(text=f"Play again? | ")
+     
+
+    
+    def check(res):
+        return ctx.author == res.user and res.channel == ctx.channel
+
+    if ctx.channel.id != 835347813818695715:
+        return await ctx.reply("You can only gamble in <#835347813818695715>")
+    if before.cash < 25:
+        return await ctx.reply("You're too broke to play, get 25 ub to play")
+    else:
+        try:
+            m = await ctx.reply(
+        embed=begin,
+        components=[[Button(style=ButtonStyle.green, label="🧱"),Button(style=ButtonStyle.blue, label="📜"),Button(style=ButtonStyle.red, label="✂️")]
+        ],
+    )
+            res = await bot.wait_for("button_click", check=check, timeout=15)
+            player = res.component.label
+            
+            if player==comp:
+              await m.edit(embed=tie,components=[])
+            
+            if player=="🧱" and comp=="📜":
+              lost_embed.add_field(name="Your Choice:", value="Rock (🧱)")
+              lost_embed.add_field(name="My Choice:", value="Paper (📜)")
+              await ub_bot.increment_bal(ctx.guild.id, ctx.author.id, "cash", -25, reason="RPS")
+              await m.edit(embed=lost_embed,components=[])
+            
+            if player=="🧱" and comp=="✂️":
+              won_embed.add_field(name="Your Choice:", value="Rock (🧱)")
+              won_embed.add_field(name="My Choice:", value="Scissors (✂️)")
+              await ub_bot.increment_bal(ctx.guild.id, ctx.author.id, "cash", 25, reason="RPS")
+              await m.edit(embed=won_embed,components=[])
+            
+            
+            if player=="📜" and comp=="🧱":
+              won_embed.add_field(name="Your Choice:", value="Paper (📜)")
+              won_embed.add_field(name="My Choice:", value="Rock (🧱)")
+              await ub_bot.increment_bal(ctx.guild.id, ctx.author.id, "cash", 25, reason="RPS")
+              await m.edit(embed=won_embed,components=[])
+            
+            if player=="📜" and comp=="✂️":
+              lost_embed.add_field(name="Your Choice:", value="Paper (📜)")
+              lost_embed.add_field(name="My Choice:", value="Scissors (✂️)")
+              await ub_bot.increment_bal(ctx.guild.id, ctx.author.id, "cash", -25, reason="RPS")
+              await m.edit(embed=lost_embed,components=[])
+            
+            
+            if player=="✂️" and comp=="🧱":
+              lost_embed.add_field(name="Your Choice:", value="Scissors (✂️)")
+              lost_embed.add_field(name="My Choice:", value="Rock (🧱)")
+              await ub_bot.increment_bal(ctx.guild.id, ctx.author.id, "cash", -25, reason="RPS")
+              await m.edit(embed=lost_embed,components=[])
+            
+            if player=="✂️" and comp=="📜":
+              won_embed.add_field(name="Your Choice:", value="Scissors (✂️)")
+              won_embed.add_field(name="My Choice:", value="Paper (📜)")
+              await ub_bot.increment_bal(ctx.guild.id, ctx.author.id, "cash", 25, reason="RPS")
+              await m.edit(embed=won_embed,components=[])
+            
+
+        except asyncio.TimeoutError:
+            await m.edit(embed=timed_out,
+            components=[])  
 
 client.run("ODAyMzU0Mzg1MjE2MzM5OTk4.YAuAwA.baWEj9OBMKuBW0d8I2l-UGV186c")
