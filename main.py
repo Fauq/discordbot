@@ -239,6 +239,7 @@ async def cf_current(ctx):
 
 
 @client.command()
+@commands.is_owner()
 @commands.cooldown(1, 25, commands.BucketType.user)
 async def rps(ctx):
     rpsGames = ['🧱', '📜', '✂️']
